@@ -167,12 +167,6 @@ const Navbar = () => {
           <NavLink to="/about" className="mobile-nav-link">
             About Us
           </NavLink>
-          <NavLink to="/safari" className="mobile-nav-link">
-            Safari
-          </NavLink>
-          <NavLink to="/packages" className="mobile-nav-link">
-            Packages
-          </NavLink>
           <NavLink to="/gallery" className="mobile-nav-link">
             Gallery
           </NavLink>
