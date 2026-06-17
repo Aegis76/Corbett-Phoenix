@@ -1,0 +1,146 @@
+/* NearbyAttractions.css */
+.attractions-section {
+  padding: 100px 0;
+  background-color: var(--white);
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 40px;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  color: var(--primary);
+  margin: 0;
+  position: relative;
+}
+
+.section-title::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background-color: var(--secondary);
+  margin-top: 10px;
+}
+
+/* Slider Controls */
+.slider-controls {
+  display: flex;
+  gap: 15px;
+}
+
+.control-btn {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid var(--secondary);
+  background: transparent;
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.control-btn:hover:not(.disabled) {
+  background-color: var(--primary);
+  color: var(--white);
+  border-color: var(--primary);
+}
+
+.control-btn.disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+/* Slider Core */
+.slider-viewport {
+  overflow: hidden;
+  margin: 0 -15px; /* Offset the card padding */
+}
+
+.card-slider {
+  display: flex;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.experience-card-wrapper {
+  min-width: 33.333%; /* Shows 3 cards */
+  padding: 15px;
+  box-sizing: border-box;
+}
+
+.experience-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  height: 100%;
+  transition: var(--transition);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.experience-card:hover {
+  transform: translateY(-10px);
+}
+
+.img-container {
+  height: 250px;
+  overflow: hidden;
+}
+
+.card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: crop;
+  transition: transform 0.5s ease;
+}
+
+.experience-card:hover .card-img {
+  transform: scale(1.1);
+}
+
+.card-content {
+  padding: 25px;
+}
+
+.card-title {
+  font-size: 1.4rem;
+  color: var(--text);
+  margin-bottom: 12px;
+}
+
+.card-desc {
+  color: var(--text-light);
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .experience-card-wrapper {
+    min-width: 50%; /* Show 2 cards on tablets */
+  }
+  .card-slider {
+    /* Adjust translate math for 2 cards if needed in JS, 
+       but typically handled by width */
+  }
+}
+
+@media (max-width: 600px) {
+  .experience-card-wrapper {
+    min-width: 100%; /* Show 1 card on mobile */
+  }
+}

@@ -1,0 +1,227 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap");
+
+:root {
+  --primary-green: #3c593c;
+  --bg-beige: #f2f0e9;
+  --gold: #d4af37;
+  --white: #ffffff;
+  --text-main: #2d3436;
+}
+
+.about-wrapper {
+  background-color: var(--bg-beige);
+  font-family: "Outfit", sans-serif;
+  color: var(--text-main);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.gold-text-highlight {
+  color: var(--gold);
+}
+
+/* HERO SECTION - Matching your "Our Rooms" Header */
+.about-hero-new {
+  background:
+    linear-gradient(rgba(60, 89, 60, 0.85), rgba(60, 89, 60, 0.85)),
+    url("https://images.unsplash.com/photo-1589136777351-fdc9c9ca083e?auto=format&fit=crop&q=80");
+  background-size: cover;
+  background-position: center;
+  padding: 100px 20px;
+  text-align: center;
+  color: var(--white);
+}
+
+.gold-badge {
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  padding: 5px 15px;
+  border-radius: 50px;
+  font-size: 12px;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+  display: inline-block;
+}
+.about-hero-new h1 {
+  font-size: 3.5rem;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+/* BENTO GRID */
+.bento-about {
+  padding: 80px 0;
+}
+.grid-layout {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto auto;
+  gap: 25px;
+}
+
+.bento-card {
+  position: relative;
+  background: var(--white);
+  border-radius: 24px;
+  padding: 30px;
+  transition: 0.4s ease;
+}
+.bento-card h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  left: 60px;
+  top: 15px;
+  position: absolute;
+}
+.bento-card h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  left: 60px;
+  top: 15px;
+  /* position: absolute; */
+}
+.main-info {
+  grid-column: span 2;
+}
+.image-card {
+  padding: 0;
+  overflow: hidden;
+}
+.image-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.feature-card {
+  text-align: center;
+}
+.gold-icon {
+  color: var(--gold);
+  margin-bottom: 15px;
+}
+
+/* CHEF SECTION - Matching your Room Card Style */
+.chef-showcase {
+  padding: 60px 0;
+}
+.section-heading {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  color: var(--primary-green);
+}
+
+.chef-container {
+  display: flex;
+  background: var(--white);
+  border-radius: 24px;
+  overflow: hidden;
+  align-items: center;
+}
+
+.chef-img {
+  width: 40%;
+  height: 400px;
+}
+.chef-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.chef-details {
+  width: 60%;
+  padding: 50px;
+}
+.chef-tag {
+  color: var(--primary-green);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 15px;
+}
+.chef-special {
+  margin-top: 20px;
+  font-weight: 600;
+  color: var(--gold);
+}
+
+/* SLIDER SECTION */
+.review-slider-section {
+  padding-bottom: 100px;
+}
+.slider-box {
+  background: var(--white);
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  padding: 50px;
+  gap: 30px;
+}
+
+.slide-content {
+  flex: 1;
+  text-align: center;
+}
+.quote-mark {
+  color: #eee;
+  margin-bottom: 20px;
+}
+.review-text {
+  font-size: 1.4rem;
+  font-style: italic;
+  line-height: 1.6;
+}
+.nav-arrow {
+  background: var(--primary-green);
+  color: white;
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s;
+}
+.nav-arrow:hover {
+  background: var(--gold);
+}
+
+/* 3D SHADOW & HOVER */
+.shadow-3d {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+.shadow-3d:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+@media (max-width: 576px) {
+  .gallery-grid {
+    grid-template-columns: 1fr; /* Mobile par single column kar do */
+    grid-auto-rows: 200px;
+  }
+  .gallery-item.large {
+    grid-column: span 1; /* Large image ko mobile par full width mat do */
+    grid-row: span 1;
+  }
+}
+@media (max-width: 768px) {
+  .grid-layout {
+    grid-template-columns: 1fr;
+  }
+  .main-info {
+    grid-column: span 1;
+  }
+  .chef-container {
+    flex-direction: column;
+  }
+  .chef-img,
+  .chef-details {
+    width: 100%;
+  }
+}

@@ -1,0 +1,128 @@
+.review-container {
+  background-color: #ffc4002e; /* Light grey background from your image */
+  padding: 60px 20px;
+  text-align: center;
+  font-family: "Arial", sans-serif;
+  border-radius: 10px;
+}
+
+.review-title {
+  font-size: 32px;
+  color: #001d3d;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+/* Underline style from image */
+.title-underline {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 40px;
+}
+.title-underline span {
+  border-radius: 10px;
+  color: #d6001c;
+  font-weight: bold;
+}
+.red-line {
+  width: 60px;
+  height: 3px;
+  background: #d6001c;
+  margin-top: -5px;
+}
+
+.slider-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.reviews-grid {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.review-card {
+  background: white;
+  width: 320px;
+  padding: 40px 20px;
+  position: relative;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  border-radius: 4px; /* Slight rounding like the image */
+}
+
+/* The Red Quote Badge */
+.red-quote-badge {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: #d6001c;
+  width: 50px;
+  height: 50px;
+  border-bottom-left-radius: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.quote-mark {
+  color: white;
+  font-size: 24px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+
+.icon-box img {
+  width: 60px;
+  margin-bottom: 15px;
+  opacity: 0.8;
+}
+
+.reviewer-name {
+  font-size: 18px;
+  color: #111;
+  margin-bottom: 10px;
+}
+
+.stars {
+  color: #ffb703; /* Golden yellow stars */
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.review-body {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* Arrows */
+.arrow-btn {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #333;
+  padding: 10px;
+  transition: 0.3s;
+}
+
+.arrow-btn:hover {
+  color: #d6001c;
+}
+
+/* Responsive */
+@media (max-width: 1000px) {
+  .reviews-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+  .slider-wrapper {
+    flex-direction: column;
+  }
+}
