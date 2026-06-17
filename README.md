@@ -1,2 +1,1 @@
-# Mountain-Vibes
-website for Mountain Vibes
+# Welcome to Corbett Phoenix Resort
