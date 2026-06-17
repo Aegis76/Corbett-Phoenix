@@ -131,17 +131,39 @@ const seasonalTariffs = [
 ];
 
 /* ---------- STYLES ---------- */
+const tableContainerStyle = {
+  backgroundColor: "#fff",
+  borderRadius: "16px",
+  overflow: "hidden",
+  boxShadow: "0 4px 20px rgba(0,0,0,0.08)",
+  marginBottom: "40px",
+};
+
+const tariffTitleStyle = {
+  textAlign: "center",
+  marginBottom: "40px",
+  fontSize: "2.5rem",
+  color: "#0f3d2e",
+};
+
+const seasonHeadingStyle = {
+  textAlign: "center",
+  marginBottom: "16px",
+  color: "#0f3d2e",
+  fontSize: "1.5rem",
+  fontWeight: "700",
+};
+
 const thStyle = {
-  border: "1px solid #ddd",
-  padding: "12px",
+  padding: "16px",
   backgroundColor: "#0f3d2e",
   color: "#fff",
-  fontWeight: "bold",
+  fontWeight: "600",
 };
 
 const tdStyle = {
-  border: "1px solid #ddd",
-  padding: "12px",
+  padding: "14px",
+  borderBottom: "1px solid #eee",
 };
 
 const Rooms = () => {
@@ -157,65 +179,103 @@ const Rooms = () => {
         }}
       >
         <div className="container">
-          <h1 style={{ fontSize: "3.5rem", marginBottom: "20px" }}>
+          <h1
+            style={{
+              fontSize: "clamp(2.5rem, 5vw, 4rem)",
+              marginBottom: "20px",
+              fontWeight: "700",
+              letterSpacing: "1px",
+            }}
+          >
             Our Rooms & Suites
           </h1>
 
-          <p style={{ fontSize: "1.2rem", opacity: 0.9 }}>
+          <p
+            style={{
+              fontSize: "1.15rem",
+              maxWidth: "700px",
+              margin: "0 auto",
+              opacity: 0.9,
+              lineHeight: "1.7",
+            }}
+          >
             Discover the perfect sanctuary for your wilderness retreat.
           </p>
         </div>
       </section>
 
-      {/* Tariff Tables */}
-      <section className="section-padding">
+      {/* Seasonal Tariff Section */}
+      <section
+        className="section-padding"
+        style={{ backgroundColor: "#f8faf8" }}
+      >
         <div className="container">
-          <h2 style={{ textAlign: "center", marginBottom: "30px" }}>
-            Room Tariff
+          <h2 style={tariffTitleStyle}>
+            Seasonal Room Tariff
           </h2>
 
           {seasonalTariffs.map((season) => (
-            <div key={season.period} style={{ marginBottom: "40px" }}>
-              <h3
-                style={{
-                  textAlign: "center",
-                  marginBottom: "15px",
-                }}
-              >
+            <div key={season.period}>
+              <h3 style={seasonHeadingStyle}>
                 {season.period}
               </h3>
 
-              <div style={{ overflowX: "auto" }}>
-                <table
-                  style={{
-                    width: "100%",
-                    minWidth: "600px",
-                    borderCollapse: "collapse",
-                    textAlign: "center",
-                  }}
-                >
-                  <thead>
-                    <tr>
-                      <th style={thStyle}>Category</th>
-                      <th style={thStyle}>CP</th>
-                      <th style={thStyle}>MAP</th>
-                      <th style={thStyle}>AP</th>
-                    </tr>
-                  </thead>
-
-                  <tbody>
-                    {season.rows.map((row) => (
-                      <tr
-                        key={`${season.period}-${row.category}`}
-                      >
-                        <td style={tdStyle}>{row.category}</td>
-                        <td style={tdStyle}>₹{row.cp}</td>
-                        <td style={tdStyle}>₹{row.map}</td>
-                        <td style={tdStyle}>₹{row.ap}</td>
+              <div style={tableContainerStyle}>
+                <div style={{ overflowX: "auto" }}>
+                  <table
+                    style={{
+                      width: "100%",
+                      borderCollapse: "collapse",
+                      textAlign: "center",
+                      minWidth: "650px",
+                    }}
+                  >
+                    <thead>
+                      <tr>
+                        <th style={thStyle}>Room Category</th>
+                        <th style={thStyle}>CP</th>
+                        <th style={thStyle}>MAP</th>
+                        <th style={thStyle}>AP</th>
                       </tr>
-                    ))}
-                  </tbody>
-                </table>
+                    </thead>
+
+                    <tbody>
+                      {season.rows.map((row, index) => (
+                        <tr
+                          key={`${season.period}-${row.category}`}
+                          style={{
+                            backgroundColor:
+                              index % 2 === 0
+                                ? "#ffffff"
+                                : "#f7f9f7",
+                          }}
+                        >
+                          <td
+                            style={{
+                              ...tdStyle,
+                              fontWeight: "600",
+                              color: "#0f3d2e",
+                            }}
+                          >
+                            {row.category}
+                          </td>
+
+                          <td style={tdStyle}>
+                            ₹{row.cp.toLocaleString()}
+                          </td>
+
+                          <td style={tdStyle}>
+                            ₹{row.map.toLocaleString()}
+                          </td>
+
+                          <td style={tdStyle}>
+                            ₹{row.ap.toLocaleString()}
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
               </div>
             </div>
           ))}
