@@ -12,7 +12,7 @@ const getSeason = (date) => {
   const day = date.getDate();
   const afterJun16 = m > 5 || (m === 5 && day >= 16);
   const beforeOct15 = m < 9 || (m === 9 && day <= 14);
-  return afterJun16 && beforeOct15 ? "off" : "peak"; // off = 16 Jun–14 Oct
+  return afterJun16 && beforeOct15 ? "peak" : "off"; // peak = 16 Jun–14 Oct
 };
 const nightsBetween = (ci, co) => {
   if (!ci || !co) return 0;
@@ -59,8 +59,8 @@ const allRooms = [
 
 /* ---------- TABLE DERIVED FROM allRooms ---------- */
 const SEASON_META = [
-  { key: "peak", label: "Peak Season", period: "15 Oct – 15 Jun" },
-  { key: "off", label: "Off Season", period: "16 Jun – 14 Oct" },
+  { key: "peak", label: "Peak Season", period: "16 Jun – 14 Oct" },
+  { key: "off", label: "Off Season", period: "15 Oct – 15 Jun" },
 ];
 const priceOf = (room, type, key) =>
   room.plans.find((p) => p.type === type).prices[key];
