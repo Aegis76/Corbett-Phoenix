@@ -77,11 +77,13 @@ const seasonalTariffs = SEASON_META.map((s) => ({
 }));
 
 /* ---------- STYLES ---------- */
-const tableContainerStyle = { backgroundColor: "#fff", borderRadius: "16px", overflow: "hidden", boxShadow: "0 4px 20px rgba(0,0,0,0.08)", marginBottom: "40px" };
-const tariffTitleStyle = { textAlign: "center", marginBottom: "40px", fontSize: "2.5rem", color: "#0f3d2e" };
-const seasonHeadingStyle = { textAlign: "center", marginBottom: "16px", color: "#0f3d2e", fontSize: "1.5rem", fontWeight: "700" };
-const thStyle = { padding: "16px", backgroundColor: "#0f3d2e", color: "#fff", fontWeight: "600" };
-const tdStyle = { padding: "14px", borderBottom: "1px solid #eee" };
+const tariffTitleStyle = { textAlign: "center", marginBottom: "8px", fontSize: "2.5rem", color: "#0f3d2e", fontWeight: 700 };
+const tariffSubtitleStyle = { textAlign: "center", marginBottom: "44px", color: "#5a6b62", fontSize: "1rem" };
+const seasonHeadingStyle = { display: "flex", alignItems: "center", justifyContent: "center", flexWrap: "wrap", gap: "12px", marginBottom: "18px", color: "#0f3d2e", fontSize: "1.4rem", fontWeight: 700 };
+const tariffTableWrap = { backgroundColor: "#fff", borderRadius: "18px", overflow: "hidden", border: "1px solid rgba(15,61,46,0.08)", marginBottom: "44px", transition: "box-shadow 0.3s ease" };
+const thStyle = { padding: "18px", background: "linear-gradient(135deg, #0f3d2e, #2d4632)", color: "#fff", fontWeight: 600, fontSize: "0.95rem", letterSpacing: "0.4px" };
+const tdStyle = { padding: "16px" };
+const datesBadgeStyle = { fontSize: "0.72rem", fontWeight: 700, background: "#0f3d2e", color: "#fff", padding: "4px 12px", borderRadius: "999px", letterSpacing: "0.4px" };
 const dateBarStyle = { display: "flex", flexWrap: "wrap", gap: "20px", justifyContent: "center", alignItems: "flex-end", maxWidth: "720px", margin: "0 auto 50px", background: "#fff", padding: "24px", borderRadius: "16px", boxShadow: "0 4px 20px rgba(0,0,0,0.08)" };
 const dateFieldStyle = { display: "flex", flexDirection: "column", gap: "6px" };
 const dateLabelStyle = { fontSize: "0.85rem", fontWeight: 600, color: "#0f3d2e" };
@@ -147,39 +149,55 @@ const Rooms = () => {
           </div>
 
           <h2 style={tariffTitleStyle}>Seasonal Room Tariff</h2>
+          <p style={tariffSubtitleStyle}>
+            Rates change by season — pick your dates above and the matching rates light up.
+          </p>
 
           {seasonalTariffs.map((season) => {
             const isActive = season.key === activeSeason;
             return (
               <div key={season.key}>
                 <h3 style={seasonHeadingStyle}>
-                  {season.period}
-                  {isActive && (
-                    <span style={{ marginLeft: "10px", fontSize: "0.8rem", background: "#0f3d2e", color: "#fff", padding: "3px 10px", borderRadius: "20px", verticalAlign: "middle" }}>
-                      Your dates
-                    </span>
-                  )}
+                  <span>{season.label}</span>
+                  <span style={{ fontWeight: 500, color: "#5a6b62", fontSize: "1rem" }}>
+                    ({season.period})
+                  </span>
+                  {isActive && <span style={datesBadgeStyle}>Your dates</span>}
                 </h3>
-                <div style={{ ...tableContainerStyle, outline: isActive ? "2px solid #0f3d2e" : "none" }}>
+
+                <div
+                  style={{
+                    ...tariffTableWrap,
+                    boxShadow: isActive
+                      ? "0 0 0 2px #0f3d2e, 0 16px 38px rgba(15,61,46,0.16)"
+                      : "0 10px 30px rgba(15,61,46,0.06)",
+                  }}
+                >
                   <div style={{ overflowX: "auto" }}>
-                    <table style={{ width: "100%", borderCollapse: "collapse", textAlign: "center", minWidth: "650px" }}>
+                    <table style={{ width: "100%", borderCollapse: "collapse", textAlign: "center", minWidth: "640px" }}>
                       <thead>
                         <tr>
-                          <th style={thStyle}>Room Category</th>
+                          <th style={{ ...thStyle, textAlign: "left", paddingLeft: "28px" }}>Room Category</th>
                           <th style={thStyle}>CP</th>
                           <th style={thStyle}>MAP</th>
                           <th style={thStyle}>AP</th>
                         </tr>
                       </thead>
                       <tbody>
-                        {season.rows.map((row, index) => (
-                          <tr key={`${season.key}-${row.category}`} style={{ backgroundColor: index % 2 === 0 ? "#ffffff" : "#f7f9f7" }}>
-                            <td style={{ ...tdStyle, fontWeight: "600", color: "#0f3d2e" }}>{row.category}</td>
-                            <td style={tdStyle}>₹{row.cp.toLocaleString()}</td>
-                            <td style={tdStyle}>₹{row.map.toLocaleString()}</td>
-                            <td style={tdStyle}>₹{row.ap.toLocaleString()}</td>
-                          </tr>
-                        ))}
+                        {season.rows.map((row, index) => {
+                          const isLast = index === season.rows.length - 1;
+                          const cellBorder = isLast ? "none" : "1px solid rgba(15,61,46,0.06)";
+                          return (
+                            <tr key={`${season.key}-${row.category}`} style={{ backgroundColor: index % 2 === 0 ? "#ffffff" : "#f7faf8" }}>
+                              <td style={{ ...tdStyle, textAlign: "left", paddingLeft: "28px", fontWeight: 700, color: "#0f3d2e", borderBottom: cellBorder }}>
+                                {row.category}
+                              </td>
+                              <td style={{ ...tdStyle, borderBottom: cellBorder }}>₹{row.cp.toLocaleString()}</td>
+                              <td style={{ ...tdStyle, borderBottom: cellBorder }}>₹{row.map.toLocaleString()}</td>
+                              <td style={{ ...tdStyle, borderBottom: cellBorder, fontWeight: 600, color: "#0f3d2e" }}>₹{row.ap.toLocaleString()}</td>
+                            </tr>
+                          );
+                        })}
                       </tbody>
                     </table>
                   </div>
