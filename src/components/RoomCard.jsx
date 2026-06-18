@@ -13,7 +13,6 @@ import "../styles/roomcard.css";
 
 const RoomCard = ({ room }) => {
   const [showPlans, setShowPlans] = useState(false);
-
   return (
     <div className="room-pricing-card">
       <div className="room-main-info">
@@ -23,7 +22,6 @@ const RoomCard = ({ room }) => {
         <div className="room-details">
           <h3 className="room-card-title">{room.name}</h3>
           <p className="room-card-desc">{room.description}</p>
-
           <div className="room-base-amenities">
             <div className="room-amenity-tag">
               <Wifi size={14} /> <span>Free Wifi</span>
@@ -35,25 +33,22 @@ const RoomCard = ({ room }) => {
               <Tv size={14} /> <span>Smart TV</span>
             </div>
           </div>
-
           <button
             className="room-view-rates-btn"
             onClick={() => setShowPlans(!showPlans)}
           >
-            {showPlans ? "Hide Rates" : "View Rates & Plans"}
+            {showPlans ? "Hide Plans" : "View Plans & Inclusions"}
             {showPlans ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
           </button>
         </div>
       </div>
-
       {showPlans && (
         <div className="room-plans-container">
           <div className="room-plans-header">
             <span>Pricing Plan</span>
             <span>Inclusions</span>
-            <span>Price per Night</span>
+            <span>Rates</span>
           </div>
-
           <div className="room-plans-list">
             {room.plans.map((plan) => (
               <div key={plan.id} className="room-plan-row">
@@ -64,7 +59,6 @@ const RoomCard = ({ room }) => {
                     <span>{plan.cancellation}</span>
                   </div>
                 </div>
-
                 <div className="room-inclusions-col">
                   <ul className="room-inclusions-grid">
                     {plan.inclusions.map((inc, index) => (
@@ -75,12 +69,11 @@ const RoomCard = ({ room }) => {
                     ))}
                   </ul>
                 </div>
-
                 <div className="room-price-column">
                   <div className="room-price-display">
-                    <span className="room-currency">₹</span>
-                    <span className="room-amount">{plan.price}</span>
-                    <span className="room-per-night">/ night</span>
+                    <span className="room-per-night">
+                      Seasonal — see tariff above
+                    </span>
                   </div>
                   <Link to="/contact" className="room-book-btn">
                     Select
