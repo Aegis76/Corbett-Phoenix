@@ -7,6 +7,25 @@ const parseDate = (str) => {
   const [y, m, d] = str.split("-").map(Number);
   return new Date(y, m - 1, d); // local midnight, avoids TZ off-by-one
 };
+
+// today as YYYY-MM-DD in LOCAL time.
+// NOTE: toISOString() returns UTC — in IST (UTC+5:30) that rolls back a day
+// before 05:30 local, which is exactly how "yesterday" was sneaking through.
+const todayStr = () => {
+  const d = new Date();
+  const y = d.getFullYear();
+  const m = String(d.getMonth() + 1).padStart(2, "0");
+  const day = String(d.getDate()).padStart(2, "0");
+  return `${y}-${m}-${day}`;
+};
+const addDays = (str, n) => {
+  const d = parseDate(str);
+  d.setDate(d.getDate() + n);
+  const y = d.getFullYear();
+  const m = String(d.getMonth() + 1).padStart(2, "0");
+  const day = String(d.getDate()).padStart(2, "0");
+  return `${y}-${m}-${day}`;
+};
 const getSeason = (date) => {
   const m = date.getMonth();
   const day = date.getDate();
@@ -90,9 +109,12 @@ const dateLabelStyle = { fontSize: "0.85rem", fontWeight: 600, color: "#0f3d2e" 
 const dateInputStyle = { padding: "10px 14px", border: "1px solid #ccc", borderRadius: "8px", fontSize: "1rem" };
 
 const Rooms = () => {
-  const today = new Date().toISOString().slice(0, 10);
+  const today = todayStr();
   const [checkIn, setCheckIn] = useState("");
   const [checkOut, setCheckOut] = useState("");
+
+  // check-out can never be earlier than the morning after check-in
+  const minCheckOut = checkIn ? addDays(checkIn, 1) : today;
 
   const activeSeason = checkIn ? getSeason(parseDate(checkIn)) : null;
   const nights = nightsBetween(checkIn, checkOut);
@@ -124,8 +146,12 @@ const Rooms = () => {
                 value={checkIn}
                 style={dateInputStyle}
                 onChange={(e) => {
-                  setCheckIn(e.target.value);
-                  if (checkOut && e.target.value >= checkOut) setCheckOut("");
+                  const val = e.target.value;
+                  // reject any past date — guards typed/pasted input that `min` doesn't catch
+                  if (val && val < today) return;
+                  setCheckIn(val);
+                  // if existing check-out is now on/before the new check-in, clear it
+                  if (checkOut && val && checkOut <= val) setCheckOut("");
                 }}
               />
             </div>
@@ -133,10 +159,15 @@ const Rooms = () => {
               <label style={dateLabelStyle}>Check-out</label>
               <input
                 type="date"
-                min={checkIn || today}
+                min={minCheckOut}
                 value={checkOut}
                 style={dateInputStyle}
-                onChange={(e) => setCheckOut(e.target.value)}
+                onChange={(e) => {
+                  const val = e.target.value;
+                  // must be at least one night after check-in (or after today if none picked)
+                  if (val && val < minCheckOut) return;
+                  setCheckOut(val);
+                }}
               />
             </div>
             <div style={{ ...dateFieldStyle, justifyContent: "flex-end" }}>
