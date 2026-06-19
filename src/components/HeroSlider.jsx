@@ -10,19 +10,19 @@ const slides = [
   },
   {
     id: 2,
-    title: "Luxury Meets",
+    title: "Luxury Meets the Great Outdoors",
     subtitle: "Premium Cottages with Modern Amenities",
   },
   {
     id: 3,
-    title: "Discover Our Stunning Accommodations",
-    subtitle: "Explore Your Room Options",
+    title: "Experience Unforgettable Stays",
+    subtitle: "Pick the Perfect Room for Your Journey",
   },
 ];
 
 const HeroSlider = () => {
   const [current, setCurrent] = useState(0);
-  const videoSrc = "/HotelImages/herovideo102.mp4";
+  const videoSrc = "public/HotelImages/herovideo102.mp4";
 
   useEffect(() => {
     const timer = setInterval(() => {
