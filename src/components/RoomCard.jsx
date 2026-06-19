@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import { Wifi, Wind, Tv, ChevronDown, ChevronUp, CheckCircle2, Info } from "lucide-react";
 import "../styles/roomcard.css";
 
-const RoomCard = ({ room, season, nights }) => {
+const RoomCard = ({ room, season, nights, onBook, onNeedDates }) => {
   const [showPlans, setShowPlans] = useState(false);
+  const canBook = !!season && nights > 0;
+
   return (
     <div className="room-pricing-card">
       <div className="room-main-info">
@@ -62,7 +63,7 @@ const RoomCard = ({ room, season, nights }) => {
                         <span className="room-amount">{nightly.toLocaleString()}</span>
                         <span className="room-per-night">/ night</span>
                         {total > 0 && (
-                          <span className="room-per-night" style={{ display: "block" }}>
+                          <span className="room-price-total">
                             ₹{total.toLocaleString()} total · {nights} night{nights > 1 ? "s" : ""}
                           </span>
                         )}
@@ -72,7 +73,18 @@ const RoomCard = ({ room, season, nights }) => {
                         <span className="room-per-night">Select dates above</span>
                       </div>
                     )}
-                    <Link to="/contact" className="room-book-btn">Select</Link>
+                    <button
+                      type="button"
+                      className="room-book-btn"
+                      style={{ border: "none", cursor: "pointer", fontFamily: "inherit" }}
+                      onClick={() =>
+                        canBook
+                          ? onBook({ roomName: room.name, planName: plan.name, nightly, total })
+                          : onNeedDates()
+                      }
+                    >
+                      {canBook ? "Book Now" : "Select dates"}
+                    </button>
                   </div>
                 </div>
               );
