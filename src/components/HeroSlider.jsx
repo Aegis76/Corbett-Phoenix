@@ -22,7 +22,7 @@ const slides = [
 
 const HeroSlider = () => {
   const [current, setCurrent] = useState(0);
-  const videoSrc = "public/HotelImages/herovideo102.mp4";
+  const videoSrc = "HotelImages/herovideo102.mp4";
 
   useEffect(() => {
     const timer = setInterval(() => {
