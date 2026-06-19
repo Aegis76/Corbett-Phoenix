@@ -1,6 +1,6 @@
-/* ====================================
-   PREMIUM HERO SECTION
-==================================== */
+/* ================================
+   HERO SECTION
+================================ */
 .hero {
   position: relative;
   width: 100%;
@@ -9,9 +9,9 @@
   background: #000;
 }
 
-/* ====================================
-   VIDEO
-==================================== */
+/* ================================
+   VIDEO BACKGROUND
+================================ */
 .hero-video {
   position: absolute;
   inset: 0;
@@ -19,204 +19,201 @@
   height: 100%;
   object-fit: cover;
 
-  filter: brightness(0.75) contrast(1.1);
-  transform: scale(1.03);
+  filter:
+    brightness(0.65)
+    contrast(1.15)
+    saturate(1.15);
+
+  transform: scale(1.05);
 }
 
-/* ====================================
+/* ================================
    OVERLAY
-==================================== */
+================================ */
 .hero-overlay {
   position: absolute;
   inset: 0;
 
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 
-  padding: 0 20px;
+  padding: 0 24px;
 
   background:
     linear-gradient(
-      180deg,
-      rgba(0,0,0,0.35) 0%,
-      rgba(0,0,0,0.55) 50%,
+      135deg,
+      rgba(0,0,0,0.75) 0%,
+      rgba(0,0,0,0.35) 45%,
       rgba(0,0,0,0.75) 100%
     );
 
   z-index: 2;
 }
 
-/* ====================================
-   CONTENT BOX
-==================================== */
+/* ================================
+   CONTENT
+================================ */
 .hero-content {
-  max-width: 900px;
+  max-width: 950px;
   text-align: center;
   color: #fff;
-
-  padding: 40px;
-
-  backdrop-filter: blur(4px);
-  border-radius: 24px;
 }
 
-/* ====================================
-   LUXURY TAG
-==================================== */
-.hero-tag {
-  display: inline-block;
+/* ================================
+   TITLE
+================================ */
+.hero-title {
+  font-size: clamp(3rem, 8vw, 6.5rem);
 
-  padding: 10px 22px;
+  font-weight: 800;
 
-  border-radius: 50px;
-
-  background: rgba(255,255,255,0.12);
-
-  border: 1px solid rgba(255,255,255,0.2);
-
-  color: #d4af37;
-
-  font-size: 14px;
-  font-weight: 600;
-
-  letter-spacing: 2px;
+  line-height: 1.05;
 
   margin-bottom: 25px;
-}
 
-/* ====================================
-   TITLE
-==================================== */
-.hero-title {
-  font-size: clamp(3rem, 8vw, 6rem);
-
-  font-weight: 700;
-
-  line-height: 1.1;
-
-  margin-bottom: 20px;
-
-  text-transform: capitalize;
+  letter-spacing: -2px;
 
   text-shadow:
-    0 10px 30px rgba(0,0,0,0.4);
+    0 10px 40px rgba(0,0,0,0.4);
+
+  animation: fadeUp 1s ease;
 }
 
-/* ====================================
+/* ================================
    SUBTITLE
-==================================== */
+================================ */
 .hero-subtitle {
-  font-size: clamp(1rem, 2vw, 1.3rem);
-
-  line-height: 1.8;
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
 
   max-width: 700px;
 
-  margin: 0 auto 35px;
+  margin: 0 auto 40px;
 
-  opacity: 0.92;
+  line-height: 1.8;
+
+  color: rgba(255,255,255,0.9);
+
+  font-weight: 300;
+
+  animation: fadeUp 1.2s ease;
 }
 
-/* ====================================
+/* ================================
    BUTTONS
-==================================== */
+================================ */
 .hero-btns {
   display: flex;
   justify-content: center;
   gap: 20px;
   flex-wrap: wrap;
+
+  animation: fadeUp 1.4s ease;
 }
 
 .hero-btns .btn {
-  min-width: 180px;
+  min-width: 190px;
+  padding: 15px 32px;
+  border-radius: 50px;
+
+  font-weight: 600;
+
+  transition: all 0.4s ease;
 }
 
-/* ====================================
-   SCROLL INDICATOR
-==================================== */
-.scroll-indicator {
-  position: absolute;
+.hero-btns .btn-primary {
+  background: linear-gradient(
+    135deg,
+    #d4af37,
+    #f5d76e
+  );
 
-  bottom: 30px;
-  left: 50%;
-
-  transform: translateX(-50%);
-
-  color: #fff;
-
-  font-size: 13px;
-
-  letter-spacing: 2px;
-
-  animation: bounce 2s infinite;
+  border: none;
+  color: #111;
 }
 
-@keyframes bounce {
-  0%,100% {
-    transform: translateX(-50%) translateY(0);
+.hero-btns .btn-primary:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 35px rgba(212,175,55,0.35);
+}
+
+.hero-btns .btn-outline {
+  border: 2px solid rgba(255,255,255,0.8);
+  backdrop-filter: blur(8px);
+}
+
+.hero-btns .btn-outline:hover {
+  background: white;
+  color: #111 !important;
+  transform: translateY(-4px);
+}
+
+/* ================================
+   ANIMATION
+================================ */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
   }
 
-  50% {
-    transform: translateX(-50%) translateY(10px);
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-/* ====================================
-   MOBILE
-==================================== */
+/* ================================
+   TABLET
+================================ */
 @media (max-width: 992px) {
-  .hero-content {
-    padding: 25px;
-  }
-
   .hero-title {
-    font-size: 3.2rem;
+    font-size: 4rem;
   }
 }
 
+/* ================================
+   MOBILE
+================================ */
 @media (max-width: 768px) {
   .hero {
     height: 90vh;
   }
 
-  .hero-overlay {
-    padding: 0 15px;
-  }
-
   .hero-content {
-    padding: 20px;
+    max-width: 100%;
   }
 
   .hero-title {
-    font-size: 2.3rem;
-    line-height: 1.2;
+    font-size: 2.5rem;
+    line-height: 1.15;
+    margin-bottom: 18px;
   }
 
   .hero-subtitle {
     font-size: 1rem;
+    margin-bottom: 30px;
     line-height: 1.7;
   }
 
   .hero-btns {
     flex-direction: column;
     width: 100%;
-    max-width: 320px;
+    max-width: 300px;
     margin: auto;
   }
 
   .hero-btns .btn {
     width: 100%;
   }
-
-  .scroll-indicator {
-    display: none;
-  }
 }
 
+/* ================================
+   SMALL MOBILE
+================================ */
 @media (max-width: 480px) {
   .hero-title {
-    font-size: 1.9rem;
+    font-size: 2rem;
   }
 
   .hero-subtitle {
