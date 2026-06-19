@@ -7,7 +7,7 @@ import PackageCard from "../components/PackageCard";
 import GalleryGrid from "../components/GalleryGrid";
 import Testimonials from "../components/Testimonials";
 import CTASection from "../components/CTASection";
-import StatsSection from "../components/StatsSection";
+
 import NearbyAttractions from "../components/NearbyAttractions";
 import WhyChooseUs from "../components/WhyChooseUs";
 
@@ -155,9 +155,7 @@ const Home = () => {
         <NearbyAttractions />
       </section>
 
-      <section className="section-padding" style={{ backgroundColor: "#f9f9f9" }}>
-        <StatsSection />
-      </section>
+  
 
       {/* Testimonials */}
       <section className="section-padding" style={{ backgroundColor: "#f9f9f9" }}>
