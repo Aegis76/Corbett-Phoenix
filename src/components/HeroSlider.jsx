@@ -4,17 +4,14 @@ import { motion, AnimatePresence } from "motion/react";
 
 const slides = [
   {
-    id: 1,
     title: "Discover Our Stunning Accommodations",
     subtitle: "Explore Your Room Options",
   },
   {
-    id: 2,
     title: "Luxury Meets the Great Outdoors",
     subtitle: "Premium Cottages with Modern Amenities",
   },
   {
-    id: 3,
     title: "Experience Unforgettable Stays",
     subtitle: "Pick the Perfect Room for Your Journey",
   },
@@ -25,26 +22,40 @@ const HeroSlider = () => {
   const videoSrc = "HotelImages/herovideo102.mp4";
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrent((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
+    const interval = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % slides.length);
     }, 5000);
-    return () => clearInterval(timer);
-  }, []);
+    return () => clearInterval(interval);
+  }, []); // slides length is constant, no need to include
+
+  // Optionally, handle video load error
+  const [videoError, setVideoError] = useState(false);
 
   return (
     <div className="hero">
-      <video autoPlay loop muted playsInline className="hero-video">
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="hero-video"
+        aria-hidden="true"
+        onError={() => setVideoError(true)}
+      >
         <source src={videoSrc} type="video/mp4" />
+        {/* Add fallback: webm or ogg if available */}
       </video>
+      {/* Fallback if video fails */}
+      {videoError && <div className="hero-fallback-bg" />}
 
       <div className="hero-overlay">
         <AnimatePresence mode="wait">
           <motion.div
-            key={current}
+            key={current} // using index as key is fine for static array
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.8, ease: "easeInOut" }}
             className="hero-content"
           >
             <h1 className="hero-title">{slides[current].title}</h1>
