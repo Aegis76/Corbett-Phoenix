@@ -1,9 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
 import HeroSlider from "../components/HeroSlider";
 import RoomCard from "../components/RoomCard";
+import ExperienceCard from "../components/ExperienceCard";
 import Amenities from "../components/Amenities";
+import PackageCard from "../components/PackageCard";
 import GalleryGrid from "../components/GalleryGrid";
 import Testimonials from "../components/Testimonials";
 import CTASection from "../components/CTASection";
@@ -14,292 +15,190 @@ import WhyChooseUs from "../components/WhyChooseUs";
 const rooms = [
   {
     id: 1,
-    name: "Forest View Deluxe",
-    description:
-      "Comfortable room with modern interiors and scenic mountain views.",
+    name: "Deluxe Room",
+    description: "Spacious room with garden view and modern amenities.",
     image: "/HotelImages/FamilySuite.jpeg",
     price: "4,500",
   },
   {
     id: 2,
-    name: "Premium Valley Room",
-    description:
-      "Elegant accommodation with spacious interiors and premium facilities.",
+    name: "Premium Room",
+    description: "Luxury room with private balcony and forest views.",
     image: "/HotelImages/DeluxeRoom.jpeg",
     price: "6,000",
   },
   {
     id: 3,
-    name: "Luxury Family Suite",
-    description:
-      "Perfect for families seeking extra space and comfort.",
+    name: "Luxury Cottage",
+    description: "Independent cottage for ultimate privacy and comfort.",
     image: "/HotelImages/PremiumRoom.jpeg",
     price: "8,500",
+  },
+];
+
+const experiences = [
+  {
+    id: 1,
+    title: "Jeep Safari",
+    description: "Explore the wilderness of Jim Corbett in an open jeep.",
+    image:
+      "https://images.unsplash.com/photo-1534171472159-edb6d1e0b63c?auto=format&fit=crop&q=80&w=800",
+  },
+  {
+    id: 2,
+    title: "Bird Watching",
+    description: "Discover rare bird species in their natural habitat.",
+    image:
+      "https://images.unsplash.com/photo-1444464666168-49d633b867ad?auto=format&fit=crop&q=80&w=800",
+  },
+];
+
+const packages = [
+  {
+    id: 1,
+    title: "2N/3D Wildlife Special",
+    inclusions: [
+      "Luxury Stay",
+      "All Meals Included",
+      "1 Jeep Safari",
+      "Nature Walk",
+    ],
+    image:
+      "https://images.unsplash.com/photo-1500043356145-5e17a7fe42c5?auto=format&fit=crop&q=80&w=800",
+    price: "12,999",
   },
 ];
 
 const Home = () => {
   return (
     <main>
-      {/* HERO */}
       <HeroSlider />
 
-      {/* BOOKING BAR */}
-      <section className="booking-strip">
-        <div className="container">
-          <div className="booking-box">
-            <div className="booking-item">
-              <label>Check In</label>
-              <input type="date" />
-            </div>
-
-            <div className="booking-item">
-              <label>Check Out</label>
-              <input type="date" />
-            </div>
-
-            <div className="booking-item">
-              <label>Guests</label>
-              <select>
-                <option>1 Guest</option>
-                <option>2 Guests</option>
-                <option>3 Guests</option>
-                <option>4 Guests</option>
-              </select>
-            </div>
-
-            <button className="booking-btn">
-              Check Availability
-            </button>
-          </div>
-        </div>
-      </section>
-
-      {/* ABOUT HOTEL */}
+      {/* About Section */}
       <section className="section-padding">
         <div className="container">
-          <div className="about-grid">
-
-            <div className="about-image">
-              <img
-                src="/HotelImages/WhatsApp Image 2026-03-20 at 11.48.55 AM (2).jpeg"
-                alt="Corbett Phoenix Hotel"
-              />
-            </div>
-
+          <div className="about-section">
             <div className="about-content">
-              <span className="sub-title">
-                Welcome To Corbett Phoenix Hotel
-              </span>
-
-              <h2>
-                A Comfortable Stay Surrounded By Nature
+              <h2 className="section-title" style={{ textAlign: "left" }}>
+                Welcome to Corbett Phoenix Resort
               </h2>
-
-              <p>
-                Located in Awala Khot, Kotabagh, Corbett Phoenix Hotel
-                offers modern accommodations, warm hospitality, and
-                stunning views of Uttarakhand's natural beauty.
+              <p style={{ marginBottom: "20px", fontSize: "1.1rem" }}>
+                Your Gateway to Peace in the Heart of Nature Nestled in the lush
+                greens of Awala Khot, Kotabagh, just a short drive from the
+                enchanting Corbett National Park, Phoenix Corbet is a tranquil
+                escape for nature lovers, adventure seekers, and those looking
+                to disconnect from the hustle of city life.
               </p>
-
-              <p>
-                Whether you're planning a family vacation, a romantic
-                getaway, or a peaceful retreat, our hotel provides
-                the perfect blend of comfort, convenience, and
-                tranquility near Jim Corbett National Park.
+              <p style={{ marginBottom: "30px", color: "var(--text-light)" }}>
+                Surrounded by the majestic hills of Nainital and the serene
+                landscapes of Uttarakhand, our hotel blends rustic charm with
+                modern comfort, offering a unique experience that rejuvenates
+                your body, mind, and soul.
               </p>
-
-              <div className="about-features">
-                <div>✓ Premium Rooms</div>
-                <div>✓ Restaurant</div>
-                <div>✓ Free WiFi</div>
-                <div>✓ Parking Facility</div>
-                <div>✓ Family Friendly</div>
-                <div>✓ Room Service</div>
-              </div>
-
-              <Link
-                to="/about"
-                className="btn btn-primary"
-              >
-                Discover More
+              <Link to="/contact" className="btn btn-primary">
+                Learn More
               </Link>
             </div>
-
+            <div className="about-img">
+              <img
+                src="/HotelImages/WhatsApp Image 2026-03-20 at 11.48.55 AM (2).jpeg"
+                alt="Resort View"
+              />
+            </div>
           </div>
         </div>
       </section>
 
-      {/* STATS */}
-      <section className="section-padding bg-light">
-        <StatsSection />
-      </section>
-
-      {/* ROOMS */}
-      <section className="section-padding">
+      {/* Rooms Preview */}
+      <section
+        className="section-padding"
+        style={{ backgroundColor: "#f9f9f9" }}
+      >
         <div className="container">
-
-          <h2 className="section-title">
-            Featured Rooms
-          </h2>
-
+          <h2 className="section-title">Our Luxury Stays</h2>
           <div className="card-grid">
             {rooms.map((room) => (
-              <RoomCard
-                key={room.id}
-                room={room}
-              />
+              <RoomCard key={room.id} room={room} />
             ))}
           </div>
-
-          <div
-            style={{
-              textAlign: "center",
-              marginTop: "50px",
-            }}
-          >
-            <Link
-              to="/rooms"
-              className="btn btn-outline"
-            >
+          <div style={{ textAlign: "center", marginTop: "50px" }}>
+            <Link to="/rooms" className="btn btn-outline">
               View All Rooms
             </Link>
           </div>
-
         </div>
       </section>
 
-      {/* WHY CHOOSE US */}
-      <section className="section-padding bg-light">
+      {/* Why do you choose us  */}
+      <section className="section-padding">
         <WhyChooseUs />
       </section>
 
-      {/* AMENITIES */}
-      <section className="section-padding">
+      {/* Amenities */}
+      <section
+        className="section-padding"
+        style={{ backgroundColor: "#f9f9f9" }}
+      >
         <div className="container">
-          <h2 className="section-title">
-            Hotel Amenities
-          </h2>
-
+          <h2 className="section-title">Resort Amenities</h2>
           <Amenities />
         </div>
       </section>
 
-      {/* HOTEL HIGHLIGHTS */}
-      <section className="section-padding bg-light">
+      {/* Packages Preview */}
+      <section className="section-padding">
         <div className="container">
-
-          <h2 className="section-title">
-            Hotel Highlights
-          </h2>
-
-          <div className="highlights-grid">
-
-            <div className="highlight-card">
-              <h3>Mountain Views</h3>
-              <p>
-                Wake up to beautiful mountain scenery
-                and fresh air every morning.
-              </p>
-            </div>
-
-            <div className="highlight-card">
-              <h3>Restaurant</h3>
-              <p>
-                Enjoy delicious meals prepared with
-                fresh ingredients.
-              </p>
-            </div>
-
-            <div className="highlight-card">
-              <h3>Parking</h3>
-              <p>
-                Secure and convenient parking
-                available for all guests.
-              </p>
-            </div>
-
-            <div className="highlight-card">
-              <h3>Free WiFi</h3>
-              <p>
-                Stay connected with high-speed
-                internet throughout the hotel.
-              </p>
-            </div>
-
+          <h2 className="section-title">Exclusive Packages</h2>
+          <div className="card-grid">
+            {packages.map((pkg) => (
+              <PackageCard key={pkg.id} pkg={pkg} />
+            ))}
           </div>
-
+          <div style={{ textAlign: "center", marginTop: "50px" }}>
+            <Link to="/packages" className="btn btn-outline">
+              Explore All Packages
+            </Link>
+          </div>
         </div>
       </section>
 
-      {/* ATTRACTIONS */}
-      <NearbyAttractions />
-
-      {/* GALLERY */}
-      <section className="section-padding">
+      {/* Gallery Preview */}
+      <section
+        className="section-padding"
+        style={{ backgroundColor: "#f9f9f9" }}
+      >
         <div className="container">
-
-          <h2 className="section-title">
-            Gallery
-          </h2>
-
+          <h2 className="section-title">Gallery Highlights</h2>
           <GalleryGrid limit={6} />
-
-          <div
-            style={{
-              textAlign: "center",
-              marginTop: "40px",
-            }}
-          >
-            <Link
-              to="/gallery"
-              className="btn btn-outline"
-            >
+          <div style={{ textAlign: "center", marginTop: "50px" }}>
+            <Link to="/gallery" className="btn btn-outline">
               View Full Gallery
             </Link>
           </div>
-
         </div>
       </section>
-
-      {/* BANNER */}
-      <section className="hotel-banner">
-        <div className="hotel-banner-overlay">
-          <div className="container">
-            <h2>
-              Stay Close To Nature,
-              Enjoy Modern Comfort
-            </h2>
-
-            <p>
-              Experience unforgettable hospitality
-              in the heart of Uttarakhand.
-            </p>
-
-            <Link
-              to="/contact"
-              className="btn btn-primary"
-            >
-              Book Your Stay
-            </Link>
-          </div>
-        </div>
+      <section>
+        <NearbyAttractions />
       </section>
 
-      {/* TESTIMONIALS */}
-      <section className="section-padding">
+      <section
+        className="section-padding"
+        style={{ backgroundColor: "#f9f9f9" }}
+      >
+        <StatsSection />
+      </section>
+
+      {/* Testimonials */}
+      <section
+        className="section-padding"
+        style={{ backgroundColor: "#f9f9f9" }}
+      >
         <div className="container">
-
-          <h2 className="section-title">
-            Guest Reviews
-          </h2>
-
+          <h2 className="section-title">Guest Reviews</h2>
           <Testimonials />
-
         </div>
       </section>
 
-      {/* CTA */}
       <CTASection />
     </main>
   );
