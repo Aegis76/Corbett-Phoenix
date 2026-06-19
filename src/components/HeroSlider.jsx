@@ -19,43 +19,29 @@ const slides = [
 
 const HeroSlider = () => {
   const [current, setCurrent] = useState(0);
-  const videoSrc = "HotelImages/herovideo102.mp4";
+  const videoSrc = "/HotelImages/herovideo102.mp4";
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % slides.length);
+    const timer = setInterval(() => {
+      setCurrent((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
     }, 5000);
-    return () => clearInterval(interval);
-  }, []); // slides length is constant, no need to include
-
-  // Optionally, handle video load error
-  const [videoError, setVideoError] = useState(false);
+    return () => clearInterval(timer);
+  }, []);
 
   return (
     <div className="hero">
-      <video
-        autoPlay
-        loop
-        muted
-        playsInline
-        className="hero-video"
-        aria-hidden="true"
-        onError={() => setVideoError(true)}
-      >
+      <video autoPlay loop muted playsInline className="hero-video">
         <source src={videoSrc} type="video/mp4" />
-        {/* Add fallback: webm or ogg if available */}
       </video>
-      {/* Fallback if video fails */}
-      {videoError && <div className="hero-fallback-bg" />}
 
       <div className="hero-overlay">
         <AnimatePresence mode="wait">
           <motion.div
-            key={current} // using index as key is fine for static array
+            key={current}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.8, ease: "easeInOut" }}
+            transition={{ duration: 0.8 }}
             className="hero-content"
           >
             <h1 className="hero-title">{slides[current].title}</h1>
