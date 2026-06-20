@@ -155,8 +155,7 @@ const Home = () => {
         <NearbyAttractions />
       </section>
 
-  
-
+      
       {/* Testimonials */}
       <section className="section-padding" style={{ backgroundColor: "#f9f9f9" }}>
         <div className="container">
@@ -171,3 +170,4 @@ const Home = () => {
 };
 
 export default Home;
+
