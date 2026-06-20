@@ -1,11 +1,25 @@
-@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap");
+
+/* =====================================================================
+   ABOUT — Corbett Phoenix
+   Same class names + palette, elevated execution.
+   ===================================================================== */
 
 :root {
   --primary-green: #3c593c;
+  --primary-green-deep: #2c432c;
   --bg-beige: #f2f0e9;
   --gold: #d4af37;
+  --gold-soft: rgba(212, 175, 55, 0.12);
   --white: #ffffff;
   --text-main: #2d3436;
+  --text-soft: #6b7270;
+
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --r-card: 24px;
+  --r-sm: 14px;
+  --shadow-soft: 0 10px 30px rgba(60, 89, 60, 0.07);
+  --shadow-lift: 0 22px 48px rgba(60, 89, 60, 0.14);
 }
 
 .about-wrapper {
@@ -19,73 +33,143 @@
   margin: 0 auto;
   padding: 0 20px;
 }
+
 .gold-text-highlight {
   color: var(--gold);
 }
 
-/* HERO SECTION - Matching your "Our Rooms" Header */
+/* =====================================================================
+   HERO
+   ===================================================================== */
+
 .about-hero-new {
+  position: relative;
   background:
-    linear-gradient(rgba(60, 89, 60, 0.85), rgba(60, 89, 60, 0.85)),
+    linear-gradient(
+      rgba(44, 67, 44, 0.78),
+      rgba(60, 89, 60, 0.86)
+    ),
     url("https://images.unsplash.com/photo-1589136777351-fdc9c9ca083e?auto=format&fit=crop&q=80");
   background-size: cover;
   background-position: center;
-  padding: 100px 20px;
+  padding: 130px 20px 120px;
   text-align: center;
   color: var(--white);
+  overflow: hidden;
+}
+
+.about-hero-new > * {
+  position: relative;
+  z-index: 2;
+  animation: aboutRise 0.9s var(--ease) both;
+}
+
+@keyframes aboutRise {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .gold-badge {
   border: 1px solid var(--gold);
   color: var(--gold);
-  padding: 5px 15px;
+  padding: 7px 20px;
   border-radius: 50px;
   font-size: 12px;
+  letter-spacing: 2px;
   text-transform: uppercase;
-  margin-bottom: 15px;
+  margin-bottom: 22px;
   display: inline-block;
-}
-.about-hero-new h1 {
-  font-size: 3.5rem;
-  margin-bottom: 10px;
-  font-weight: 700;
+  background: rgba(212, 175, 55, 0.08);
+  backdrop-filter: blur(2px);
 }
 
-/* BENTO GRID */
-.bento-about {
-  padding: 80px 0;
+.about-hero-new h1 {
+  font-size: clamp(2.4rem, 6vw, 4rem);
+  margin-bottom: 18px;
+  font-weight: 700;
+  letter-spacing: -1px;
+  line-height: 1.1;
+  text-shadow: 0 6px 40px rgba(0, 0, 0, 0.35);
 }
+
+.about-hero-new p {
+  max-width: 620px;
+  margin: 0 auto;
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  font-weight: 300;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* thin gold rule under the hero heading */
+.about-hero-new h1::after {
+  content: "";
+  display: block;
+  width: 70px;
+  height: 3px;
+  background: var(--gold);
+  border-radius: 3px;
+  margin: 22px auto 0;
+}
+
+/* =====================================================================
+   BENTO GRID
+   ===================================================================== */
+
+.bento-about {
+  padding: 90px 0;
+}
+
 .grid-layout {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: auto auto;
-  gap: 25px;
+  grid-auto-rows: 1fr;
+  gap: 24px;
 }
 
 .bento-card {
   position: relative;
   background: var(--white);
-  border-radius: 24px;
-  padding: 30px;
-  transition: 0.4s ease;
+  border-radius: var(--r-card);
+  padding: 36px;
+  box-shadow: var(--shadow-soft);
+  border: 1px solid rgba(60, 89, 60, 0.05);
+  transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease);
 }
-.bento-card h1 {
-  font-size: 2rem;
-  font-weight: bold;
-  left: 60px;
-  top: 15px;
-  position: absolute;
+
+.bento-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lift);
 }
+
+/* headings back in normal flow (was absolute with hardcoded offsets) */
+.bento-card h1,
 .bento-card h2 {
-  font-size: 2rem;
-  font-weight: bold;
-  left: 60px;
-  top: 15px;
-  /* position: absolute; */
+  position: static;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 700;
+  color: var(--primary-green);
+  margin-bottom: 16px;
+  line-height: 1.2;
 }
+
+.bento-card p {
+  color: var(--text-soft);
+  line-height: 1.7;
+  font-size: 1rem;
+}
+
 .main-info {
   grid-column: span 2;
+  background: linear-gradient(150deg, var(--white) 60%, #f7f5ef 100%);
 }
+
 .image-card {
   padding: 0;
   overflow: hidden;
@@ -94,128 +178,232 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 0.7s var(--ease);
 }
-.feature-card {
-  text-align: center;
-}
-.gold-icon {
-  color: var(--gold);
-  margin-bottom: 15px;
+.image-card:hover img {
+  transform: scale(1.06);
 }
 
-/* CHEF SECTION - Matching your Room Card Style */
-.chef-showcase {
-  padding: 60px 0;
+.feature-card {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
+
+/* circular gold badge around the icon */
+.gold-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--gold-soft);
+  color: var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 18px;
+  transition: transform 0.4s var(--ease);
+}
+.feature-card:hover .gold-icon {
+  transform: scale(1.1) rotate(-4deg);
+}
+
+/* =====================================================================
+   CHEF SHOWCASE
+   ===================================================================== */
+
+.chef-showcase {
+  padding: 70px 0;
+}
+
 .section-heading {
   text-align: center;
-  font-size: 2.5rem;
-  margin-bottom: 40px;
+  font-size: clamp(1.9rem, 4vw, 2.5rem);
+  font-weight: 700;
+  margin-bottom: 14px;
   color: var(--primary-green);
+  letter-spacing: -0.5px;
+}
+.section-heading::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: var(--gold);
+  border-radius: 3px;
+  margin: 16px auto 44px;
 }
 
 .chef-container {
   display: flex;
   background: var(--white);
-  border-radius: 24px;
+  border-radius: var(--r-card);
   overflow: hidden;
-  align-items: center;
+  align-items: stretch;
+  box-shadow: var(--shadow-soft);
+  transition: box-shadow 0.4s var(--ease), transform 0.4s var(--ease);
+}
+.chef-container:hover {
+  box-shadow: var(--shadow-lift);
+  transform: translateY(-4px);
 }
 
 .chef-img {
-  width: 40%;
-  height: 400px;
+  width: 42%;
+  min-height: 420px;
+  position: relative;
 }
 .chef-img img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
-.chef-details {
-  width: 60%;
-  padding: 50px;
+.chef-img::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    100deg,
+    transparent 70%,
+    rgba(60, 89, 60, 0.18) 100%
+  );
 }
+
+.chef-details {
+  width: 58%;
+  padding: 56px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .chef-tag {
   color: var(--primary-green);
   font-weight: 600;
   display: flex;
   align-items: center;
   gap: 8px;
-  margin-bottom: 15px;
-}
-.chef-special {
-  margin-top: 20px;
-  font-weight: 600;
-  color: var(--gold);
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-size: 0.8rem;
 }
 
-/* SLIDER SECTION */
-.review-slider-section {
-  padding-bottom: 100px;
+.chef-details h2,
+.chef-details h3 {
+  font-size: clamp(1.6rem, 3vw, 2.1rem);
+  color: var(--primary-green-deep);
+  margin-bottom: 14px;
+  font-weight: 700;
 }
+
+.chef-details p {
+  color: var(--text-soft);
+  line-height: 1.8;
+}
+
+.chef-special {
+  margin-top: 22px;
+  font-weight: 600;
+  color: var(--gold);
+  padding-top: 18px;
+  border-top: 1px solid rgba(212, 175, 55, 0.25);
+}
+
+/* =====================================================================
+   REVIEW SLIDER
+   ===================================================================== */
+
+.review-slider-section {
+  padding-bottom: 110px;
+}
+
 .slider-box {
-  background: var(--white);
-  border-radius: 24px;
+  background: linear-gradient(160deg, var(--white) 70%, #f7f5ef 100%);
+  border-radius: var(--r-card);
   display: flex;
   align-items: center;
-  padding: 50px;
-  gap: 30px;
+  padding: 60px;
+  gap: 34px;
+  box-shadow: var(--shadow-soft);
 }
 
 .slide-content {
   flex: 1;
   text-align: center;
 }
+
 .quote-mark {
-  color: #eee;
-  margin-bottom: 20px;
+  color: rgba(212, 175, 55, 0.28);
+  margin-bottom: 18px;
+  font-size: 3rem;
+  line-height: 1;
 }
+
 .review-text {
-  font-size: 1.4rem;
+  font-size: clamp(1.1rem, 2.2vw, 1.45rem);
   font-style: italic;
-  line-height: 1.6;
+  line-height: 1.7;
+  color: var(--text-main);
+  font-weight: 300;
+  max-width: 720px;
+  margin: 0 auto;
 }
+
 .nav-arrow {
   background: var(--primary-green);
-  color: white;
+  color: var(--white);
   border: none;
-  width: 50px;
-  height: 50px;
+  width: 52px;
+  height: 52px;
   border-radius: 50%;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: 0.3s;
+  flex-shrink: 0;
+  transition: background 0.3s var(--ease), transform 0.3s var(--ease),
+    box-shadow 0.3s var(--ease);
 }
 .nav-arrow:hover {
   background: var(--gold);
+  transform: scale(1.08);
+  box-shadow: 0 8px 20px rgba(212, 175, 55, 0.4);
 }
 
-/* 3D SHADOW & HOVER */
+/* =====================================================================
+   SHADOW / HOVER UTILITY
+   ===================================================================== */
+
 .shadow-3d {
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  box-shadow: var(--shadow-soft);
+  transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease);
 }
 .shadow-3d:hover {
   transform: translateY(-5px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-lift);
 }
-@media (max-width: 576px) {
-  .gallery-grid {
-    grid-template-columns: 1fr; /* Mobile par single column kar do */
-    grid-auto-rows: 200px;
-  }
-  .gallery-item.large {
-    grid-column: span 1; /* Large image ko mobile par full width mat do */
-    grid-row: span 1;
-  }
-}
+
+/* =====================================================================
+   RESPONSIVE
+   ===================================================================== */
+
 @media (max-width: 768px) {
+  .about-hero-new {
+    padding: 90px 20px 80px;
+  }
+  .bento-about {
+    padding: 60px 0;
+  }
   .grid-layout {
     grid-template-columns: 1fr;
   }
   .main-info {
     grid-column: span 1;
+  }
+  .bento-card {
+    padding: 28px;
   }
   .chef-container {
     flex-direction: column;
@@ -223,5 +411,43 @@
   .chef-img,
   .chef-details {
     width: 100%;
+  }
+  .chef-img {
+    min-height: 280px;
+  }
+  .chef-details {
+    padding: 36px 28px;
+  }
+  .slider-box {
+    padding: 40px 24px;
+    gap: 18px;
+  }
+}
+
+@media (max-width: 576px) {
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    grid-auto-rows: 200px;
+  }
+  .gallery-item.large {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+  .nav-arrow {
+    width: 44px;
+    height: 44px;
+  }
+}
+
+/* =====================================================================
+   MOTION SAFETY
+   ===================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
   }
 }
