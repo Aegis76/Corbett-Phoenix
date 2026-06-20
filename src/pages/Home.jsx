@@ -17,15 +17,7 @@ const rooms = [
   { id: 3, name: "Luxury Cottage", description: "Phoenix Corbett welcomes you with open arms and open skies.", image: "/HotelImages/PremiumRoom.jpeg", price: "8,500" },
 ];
 
-const packages = [
-  {
-    id: 1,
-    title: "2N/3D Wildlife Special",
-    inclusions: ["Luxury Stay", "All Meals Included", "1 Jeep Safari", "Nature Walk"],
-    image: "https://images.unsplash.com/photo-1500043356145-5e17a7fe42c5?auto=format&fit=crop&q=80&w=800",
-    price: "12,999",
-  },
-];
+
 
 /* Lightweight preview card for the homepage — links into /rooms to book */
 const RoomPreviewCard = ({ room }) => {
