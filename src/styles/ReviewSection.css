@@ -1,128 +1,238 @@
+/* =====================================================================
+   REVIEW SLIDER — elevated
+   Same class names. Palette scoped to .review-container (no global leak).
+   ===================================================================== */
+
 .review-container {
-  background-color: #ffc4002e; /* Light grey background from your image */
-  padding: 60px 20px;
+  --rv-red: #d6001c;
+  --rv-red-deep: #b00017;
+  --rv-navy: #001d3d;
+  --rv-star: #ffb703;
+  --rv-ease: cubic-bezier(0.16, 1, 0.3, 1);
+
+  background: radial-gradient(
+    120% 140% at 50% 0%,
+    rgba(255, 196, 0, 0.22) 0%,
+    rgba(255, 196, 0, 0.08) 45%,
+    rgba(255, 196, 0, 0.04) 100%
+  );
+  padding: 80px 20px;
   text-align: center;
-  font-family: "Arial", sans-serif;
-  border-radius: 10px;
+  font-family: "Outfit", "Arial", sans-serif;
+  border-radius: 24px;
 }
 
 .review-title {
-  font-size: 32px;
-  color: #001d3d;
+  font-size: clamp(26px, 5vw, 36px);
+  color: var(--rv-navy);
   margin-bottom: 10px;
-  font-weight: bold;
+  font-weight: 800;
+  letter-spacing: -0.5px;
 }
 
-/* Underline style from image */
+/* Title + underline */
 .title-underline {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 40px;
+  margin-bottom: 50px;
 }
 .title-underline span {
   border-radius: 10px;
-  color: #d6001c;
-  font-weight: bold;
+  color: var(--rv-red);
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-size: 13px;
 }
 .red-line {
-  width: 60px;
-  height: 3px;
-  background: #d6001c;
-  margin-top: -5px;
+  width: 64px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--rv-red), #ff5a39);
+  border-radius: 4px;
+  margin-top: 12px;
 }
 
+/* Slider layout */
 .slider-wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: 16px;
   max-width: 1200px;
   margin: 0 auto;
 }
 
 .reviews-grid {
   display: flex;
-  gap: 20px;
+  gap: 24px;
   justify-content: center;
+  align-items: stretch;
 }
+
+/* =====================================================================
+   CARD
+   ===================================================================== */
 
 .review-card {
-  background: white;
-  width: 320px;
-  padding: 40px 20px;
   position: relative;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-  border-radius: 4px; /* Slight rounding like the image */
+  background: #fff;
+  width: 320px;
+  padding: 44px 28px 32px;
+  box-shadow: 0 12px 30px rgba(0, 29, 61, 0.08);
+  border-radius: 18px;
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.4s var(--rv-ease), box-shadow 0.4s var(--rv-ease);
+  isolation: isolate;
 }
 
-/* The Red Quote Badge */
+/* growing red accent bar at the bottom */
+.review-card::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--rv-red), #ff5a39);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.4s var(--rv-ease);
+}
+
+/* big faint decorative quotation mark */
+.review-card::before {
+  content: "\201C";
+  position: absolute;
+  top: 6px;
+  left: 18px;
+  font-family: Georgia, serif;
+  font-size: 110px;
+  line-height: 1;
+  color: rgba(214, 0, 28, 0.06);
+  z-index: -1;
+}
+
+.review-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 24px 50px rgba(0, 29, 61, 0.16);
+}
+.review-card:hover::after {
+  transform: scaleX(1);
+}
+
+/* Corner quote badge */
 .red-quote-badge {
   position: absolute;
   top: 0;
   right: 0;
-  background: #d6001c;
-  width: 50px;
-  height: 50px;
+  background: linear-gradient(135deg, var(--rv-red), var(--rv-red-deep));
+  width: 54px;
+  height: 54px;
   border-bottom-left-radius: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+  box-shadow: -2px 2px 10px rgba(214, 0, 28, 0.3);
 }
-
 .quote-mark {
-  color: white;
-  font-size: 24px;
-  margin-left: 10px;
-  margin-bottom: 10px;
+  color: #fff;
+  font-size: 22px;
+  margin-left: 12px;
+  margin-bottom: 8px;
+  font-family: Georgia, serif;
 }
 
+/* Avatar / icon */
 .icon-box img {
-  width: 60px;
-  margin-bottom: 15px;
-  opacity: 0.8;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 16px;
+  opacity: 1;
+  border: 3px solid #fff;
+  box-shadow: 0 4px 14px rgba(0, 29, 61, 0.15),
+    0 0 0 2px rgba(214, 0, 28, 0.18);
 }
 
 .reviewer-name {
   font-size: 18px;
-  color: #111;
-  margin-bottom: 10px;
+  font-weight: 700;
+  color: var(--rv-navy);
+  margin-bottom: 8px;
 }
 
 .stars {
-  color: #ffb703; /* Golden yellow stars */
-  font-size: 18px;
-  margin-bottom: 15px;
+  color: var(--rv-star);
+  font-size: 17px;
+  letter-spacing: 3px;
+  margin-bottom: 16px;
 }
 
 .review-body {
-  font-size: 14px;
-  color: #666;
-  line-height: 1.6;
+  font-size: 14.5px;
+  color: #5c6470;
+  line-height: 1.75;
 }
 
-/* Arrows */
+/* =====================================================================
+   ARROWS
+   ===================================================================== */
+
 .arrow-btn {
-  background: none;
-  border: none;
-  font-size: 20px;
+  background: #fff;
+  border: 1.5px solid rgba(0, 29, 61, 0.12);
+  font-size: 18px;
   cursor: pointer;
-  color: #333;
-  padding: 10px;
-  transition: 0.3s;
+  color: var(--rv-navy);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 6px 16px rgba(0, 29, 61, 0.08);
+  transition: background 0.3s var(--rv-ease), color 0.3s var(--rv-ease),
+    transform 0.3s var(--rv-ease), box-shadow 0.3s var(--rv-ease);
 }
-
 .arrow-btn:hover {
-  color: #d6001c;
+  background: var(--rv-red);
+  color: #fff;
+  border-color: var(--rv-red);
+  transform: scale(1.08);
+  box-shadow: 0 10px 22px rgba(214, 0, 28, 0.35);
 }
 
-/* Responsive */
+/* =====================================================================
+   RESPONSIVE
+   ===================================================================== */
+
 @media (max-width: 1000px) {
+  .review-container {
+    padding: 60px 16px;
+  }
   .reviews-grid {
     flex-direction: column;
     align-items: center;
   }
   .slider-wrapper {
     flex-direction: column;
+  }
+  .arrow-btn {
+    transform: rotate(90deg);
+  }
+  .arrow-btn:hover {
+    transform: rotate(90deg) scale(1.08);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.001ms !important;
   }
 }
