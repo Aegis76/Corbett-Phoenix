@@ -12,9 +12,9 @@ import NearbyAttractions from "../components/NearbyAttractions";
 import WhyChooseUs from "../components/WhyChooseUs";
 
 const rooms = [
-  { id: 1, name: "Deluxe Room", description: "Spacious room with garden view and modern amenities.", image: "/HotelImages/FamilySuite.jpeg", price: "4,500" },
-  { id: 2, name: "Premium Room", description: "Luxury room with private balcony and forest views.", image: "/HotelImages/DeluxeRoom.jpeg", price: "6,000" },
-  { id: 3, name: "Luxury Cottage", description: "Independent cottage for ultimate privacy and comfort.", image: "/HotelImages/PremiumRoom.jpeg", price: "8,500" },
+  { id: 1, name: "Deluxe Room", description: "Welcome to Phoenix Corbet – Your Gateway to Peace in the Heart of Nature", image: "/HotelImages/FamilySuite.jpeg", price: "4,500" },
+  { id: 2, name: "Premium Room", description: "An Escape to the Wild. A Return to Yourself.", image: "/HotelImages/DeluxeRoom.jpeg", price: "6,000" },
+  { id: 3, name: "Luxury Cottage", description: "Phoenix Corbett welcomes you with open arms and open skies.", image: "/HotelImages/PremiumRoom.jpeg", price: "8,500" },
 ];
 
 const packages = [
