@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import HeroSlider from "../components/HeroSlider";
-import ExperienceCard from "../components/ExperienceCard";
 import Amenities from "../components/Amenities";
-import PackageCard from "../components/PackageCard";
 import GalleryGrid from "../components/GalleryGrid";
 import Testimonials from "../components/Testimonials";
 import CTASection from "../components/CTASection";
@@ -16,8 +14,6 @@ const rooms = [
   { id: 2, name: "Premium Room", description: "An Escape to the Wild. A Return to Yourself.", image: "/HotelImages/DeluxeRoom.jpeg", price: "6,000" },
   { id: 3, name: "Luxury Cottage", description: "Phoenix Corbett welcomes you with open arms and open skies.", image: "/HotelImages/PremiumRoom.jpeg", price: "8,500" },
 ];
-
-
 
 /* Lightweight preview card for the homepage — links into /rooms to book */
 const RoomPreviewCard = ({ room }) => {
@@ -117,23 +113,8 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Packages Preview */}
-      <section className="section-padding">
-        <div className="container">
-          <h2 className="section-title">Exclusive Packages</h2>
-          <div className="card-grid">
-            {packages.map((pkg) => (
-              <PackageCard key={pkg.id} pkg={pkg} />
-            ))}
-          </div>
-          <div style={{ textAlign: "center", marginTop: "50px" }}>
-            <Link to="/packages" className="btn btn-outline">Explore All Packages</Link>
-          </div>
-        </div>
-      </section>
-
       {/* Gallery Preview */}
-      <section className="section-padding" style={{ backgroundColor: "#f9f9f9" }}>
+      <section className="section-padding">
         <div className="container">
           <h2 className="section-title">Gallery Highlights</h2>
           <GalleryGrid limit={6} />
@@ -147,7 +128,6 @@ const Home = () => {
         <NearbyAttractions />
       </section>
 
-      
       {/* Testimonials */}
       <section className="section-padding" style={{ backgroundColor: "#f9f9f9" }}>
         <div className="container">
@@ -162,4 +142,3 @@ const Home = () => {
 };
 
 export default Home;
-
