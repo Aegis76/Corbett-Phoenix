@@ -63,8 +63,7 @@ const RoomCard = ({ room, season, nights, onBook, onNeedDates }) => {
                         <span className="room-amount">{nightly.toLocaleString()}</span>
                         <span className="room-per-night">/ night</span>
                         {total > 0 && (
-                          <span
-                            className="room-price-total"
+                          <span className="room-price-total"
                             style={{ flexBasis: "100%", marginTop: "6px", fontSize: "0.76rem", fontWeight: 600, color: "#0f3d2e" }}
                           >
                             ₹{total.toLocaleString()} total · {nights} night{nights > 1 ? "s" : ""}
