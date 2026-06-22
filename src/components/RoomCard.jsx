@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { Wifi, Wind, Tv, ChevronDown, ChevronUp, CheckCircle2, Info } from "lucide-react";
 import "../styles/roomcard.css";
 
@@ -24,6 +25,28 @@ const RoomCard = ({ room, season, nights, onBook, onNeedDates }) => {
             {showPlans ? "Hide Rates" : "View Rates & Plans"}
             {showPlans ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
           </button>
+          <Link
+            to={`/rooms/${room.id}`}
+            className="room-view-details-btn"
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: "6px",
+              width: "100%",
+              marginTop: "10px",
+              padding: "11px",
+              borderRadius: "10px",
+              border: "1.5px solid #0f3d2e",
+              color: "#0f3d2e",
+              fontWeight: 700,
+              fontSize: "0.9rem",
+              textDecoration: "none",
+              boxSizing: "border-box",
+            }}
+          >
+            View Full Details →
+          </Link>
         </div>
       </div>
       {showPlans && (
