@@ -35,7 +35,7 @@ const About = () => {
       {/* SECTION 1: MODERN HERO */}
       <section className="about-hero-new">
         <div className="hero-content">
-          <span className="gold-badge">Est. 2014</span>
+          <span className="gold-badge">Est. 2015</span>
           <h1>
             Our Story & <span className="gold-text-highlight">Philosophy</span>
           </h1>
@@ -47,7 +47,7 @@ const About = () => {
       <section className="bento-about">
         <div className="container grid-layout">
           <div className="bento-card main-info shadow-3d">
-            <h2 className="gold-title">Rooted in Nature</h2>
+            <h2 className="gold-title">Welcome to Phoenix Corbet – Your Gateway to Peace in the Heart of Nature</h2>
             <p>
               Phoenix Corbet was born out of a dream to create a peaceful
               retreat in the lap of nature. Located in Awala Khot, Kotabagh, our
@@ -78,23 +78,23 @@ const About = () => {
           </div>
           <div className="bento-card feature-card shadow-3d">
             <Leaf className="gold-icon" />
-            <h1>Who We Are</h1>
+            <h1>Sustainability</h1>
             <p>
-              We are storytellers, dreamers, and doers. We are people who’ve
-              swapped city lights for starlit skies. We are Phoenix Corbet.
-              Located in Awala Khot, Kotabagh — our hotel is your ideal base to
-              explore Corbett National Park, hidden waterfalls, scenic hiking
-              trails, and untouched Kumaoni villages.
+             We prioritize local resources and eco-friendly practices.
             </p>
           </div>
           <div className="bento-card feature-card shadow-3d">
             <Heart className="gold-icon" />
-            <h1>Our Philosophy</h1>
+            <h1>Hospitality</h1>
             <p>
-              We believe in slow, soulful travel. In hand-picked herbs from our
-              gardens, locally-sourced ingredients, wooden furniture built by
-              local artisans, and welcoming every guest not just as a
-              visitor—but as family.
+             We treat every guest like family.
+            </p>
+          </div>
+           <div className="bento-card feature-card shadow-3d">
+            <Heart className="gold-icon" />
+            <h1>Experience</h1>
+            <p>
+            We aim to provide moments that turn into lasting memories.
             </p>
           </div>
         </div>
