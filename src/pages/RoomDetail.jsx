@@ -3,9 +3,9 @@ import { useParams, Link } from "react-router-dom";
 import CTASection from "../components/CTASection";
 
 /* ---------- HOTEL CONFIG — EDIT THESE ---------- */
-const HOTEL_WHATSAPP = "919876543210"; // country code + number, no "+"
+const HOTEL_WHATSAPP = "919411197491"; // country code + number, no "+"
 const HOTEL_NAME = "Corbett Phoenix";
-const HOTEL_PHONE = "+91 98765 43210";
+const HOTEL_PHONE = "+91 9411197491";
 const HOTEL_EMAIL = "stay@corbettphoenix.com";
 const HOTEL_LOCATION = "Awala Khot, Kotabagh · near Corbett National Park, Uttarakhand";
 const CHECK_IN_TIME = "12:00 PM";
