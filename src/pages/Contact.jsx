@@ -44,7 +44,7 @@ const Contact = () => {
                 <div>
                   <h4 style={{ marginBottom: "5px" }}>Phone</h4>
                   <p style={{ opacity: 0.8 }}>
-                    +919761420066
+                    +919411197491
                     <br />
                     +919411197491
                   </p>
@@ -55,7 +55,7 @@ const Contact = () => {
                 <Mail className="contact-info-icon" />
                 <div>
                   <h4 style={{ marginBottom: "5px" }}>Email</h4>
-                  <p style={{ opacity: 0.8 }}>info@corbettphoenix.com</p>
+                  <p style={{ opacity: 0.8 }}></p>
                   <p style={{ opacity: 0.8 }}>navinpana@gmail.com</p>
                 </div>
               </div>
