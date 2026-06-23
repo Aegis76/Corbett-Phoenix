@@ -39,7 +39,7 @@ const allRooms = [
     id: 1,
     name: "Standard Room",
     description: "AC Single Bedrooms – Private, Comfortable, and Cool",
-    image: "/HotelImages/DeluxeRoom.jpeg",
+    image: "https://github.com/Aegis76/Corbett-Phoenix/blob/main/public/IMG-20260618-WA0015.jpg?raw=true",
     plans: [
       { id: "d1", type: "CP", name: "CP Plan", inclusions: ["Free WiFi", "AC", "TV", "Electric Kettle"], cancellation: "Non-Refundable", prices: { peak: 1500, off: 700 } },
       { id: "d2", type: "MAP", name: "MAP Plan", inclusions: ["Free WiFi", "AC", "TV", "Electric Kettle"], cancellation: "Free cancellation before 48 hours", prices: { peak: 2000, off: 1200 } },
@@ -50,7 +50,7 @@ const allRooms = [
     id: 2,
     name: "Deluxe Room",
     description: "Experience luxury with our premium rooms featuring private balconies overlooking the forest.",
-    image: "/HotelImages/PremiumRoom.jpeg",
+    image: "https://github.com/Aegis76/Corbett-Phoenix/blob/main/public/IMG-20260618-WA0017.jpg?raw=true",
     plans: [
       { id: "p1", type: "CP", name: "CP Plan", inclusions: ["Forest View", "Free WiFi", "AC", "TV"], cancellation: "Non-Refundable", prices: { peak: 2500, off: 1500 } },
       { id: "p2", type: "MAP", name: "MAP Plan", inclusions: ["Breakfast included", "Forest View", "Free WiFi"], cancellation: "Free cancellation before 48 hours", prices: { peak: 3000, off: 2000 } },
@@ -61,7 +61,7 @@ const allRooms = [
     id: 3,
     name: "Family Suite",
     description: "Ideal for families with spacious rooms and a common living area.",
-    image: "/HotelImages/PremiumRoom.jpeg",
+    image: "https://github.com/Aegis76/Corbett-Phoenix/blob/main/public/IMG-20260618-WA0014.jpg?raw=true",
     plans: [
       { id: "f1", type: "CP", name: "CP Plan", inclusions: ["2 Bedrooms", "Living Area", "Free WiFi", "AC"], cancellation: "Non-Refundable", prices: { peak: 5000, off: 3000 } },
       { id: "f2", type: "MAP", name: "MAP Plan", inclusions: ["Breakfast included", "2 Bedrooms", "Living Area"], cancellation: "Free cancellation before 48 hours", prices: { peak: 6000, off: 4000 } },
