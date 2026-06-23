@@ -39,13 +39,6 @@ const Services = () => {
       image:
         "https://images.unsplash.com/photo-1583922606661-09955f255971?q=80&w=800",
     },
-    {
-      title: "Riverside Wellness",
-      icon: <Ship size={24} />,
-      desc: "Find your inner peace with our riverside yoga sessions. Guided by masters, these sessions focus on meditation and breathing exercises with the soothing sound of the Kosi river in the background.",
-      image:
-        "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=800",
-    },
   ];
 
   return (
