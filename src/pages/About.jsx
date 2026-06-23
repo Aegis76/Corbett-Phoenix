@@ -100,28 +100,30 @@ const About = () => {
         </div>
       </section>
 
-      {/* SECTION 3: MASTER CHEF (Matching Deluxe Room Style) */}
+      {/* SECTION 3: Who we are (Matching Deluxe Room Style) */}
       <section className="chef-showcase">
         <div className="container">
           <h2 className="section-heading">
-            Master of <span className="gold-text-highlight">Flavors</span>
+            Who We <span className="gold-text-highlight">Are</span>
           </h2>
           <div className="chef-container shadow-3d">
             <div className="chef-img">
-              <img src="/HotelImages/masterchef02.jpg" alt="Chef" />
+              <img src="https://github.com/Aegis76/Corbett-Phoenix/blob/main/public/WhatsApp%20Unknown%202026-06-20%20at%201.08.09%20AM/Screenshot%202026-06-23%20131703.png?raw=true" alt="Chef" />
             </div>
             <div className="chef-details">
               <span className="chef-tag">
-                <Utensils size={14} /> Executive Chef
+                <Utensils size={14} /> Our Roots
               </span>
-              <h3>Chef Vikram Bisht</h3>
+              <h3>Corbett Phoenix</h3>
               <p>
-                Expert in traditional Kumaoni flavors, bringing the authentic
-                taste of the mountains to your table using hand-picked local
-                herbs.
+                We are storytellers, dreamers, and doers.
+We are people who’ve swapped city lights for starlit skies.
+We are Phoenix Corbet.
+
+         
               </p>
-              <div className="chef-special">
-                Speciality: Pahadi Mutton & Bhatt ki Churkani
+              <div className="location">
+               Located in Awala Khot, Kotabagh — our hotel is your ideal base to explore Corbett National Park, hidden waterfalls, scenic hiking trails, and untouched Kumaoni villages.
               </div>
             </div>
           </div>
