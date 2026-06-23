@@ -23,9 +23,8 @@ const Footer = () => {
               PHOENIX RESORT
             </h4>
             <p>
-              Corbett Phoenix Resort offers a premium luxury stay near Jim
-              Corbett National Park. Experience nature like never before with
-              our world-class amenities and safari adventures.
+              Whether it’s for a weekend or a month, Phoenix Corbet is where memories are made, bonds are deepened, and the soul finds rest.
+Stay wild. Stay warm. Stay with us.
             </p>
             <div className="footer-social">
               <a href="#" className="footer-social-icon">
@@ -52,12 +51,7 @@ const Footer = () => {
               <li>
                 <Link to="/rooms">Rooms</Link>
               </li>
-              <li>
-                <Link to="/safari">Safari</Link>
-              </li>
-              <li>
-                <Link to="/packages">Packages</Link>
-              </li>
+        
               <li>
                 <Link to="/gallery">Gallery</Link>
               </li>
@@ -67,27 +61,7 @@ const Footer = () => {
             </ul>
           </div>
 
-          <div className="footer-col">
-            <h4>Our Services</h4>
-            <ul className="footer-links">
-              <li>
-                <Link to="/rooms">Luxury Stay</Link>
-              </li>
-              <li>
-                <Link to="/safari">Jeep Safari</Link>
-              </li>
-              <li>
-                <Link to="/packages">Honeymoon Packages</Link>
-              </li>
-              <li>
-                <Link to="/packages">Corporate Events</Link>
-              </li>
-              <li>
-                <Link to="/gallery">Nature Photography</Link>
-              </li>
-            </ul>
-          </div>
-
+       
           <div className="footer-col">
             <h4>Contact Info</h4>
             <ul className="footer-contact">
@@ -98,7 +72,7 @@ const Footer = () => {
                   style={{ background: "none", width: "auto", height: "auto" }}
                 />
                 <span>
-                  Near Jim Corbett National Park, Ramnagar, Uttarakhand, India
+                Located in Awala Khot, Kotabagh
                 </span>
               </li>
               <li>
@@ -107,7 +81,7 @@ const Footer = () => {
                   className="footer-social-icon"
                   style={{ background: "none", width: "auto", height: "auto" }}
                 />
-                <span>+91 9761420066</span>
+                <span>+91 94111 97491</span>
               </li>
               <li>
                 <Mail
@@ -115,7 +89,7 @@ const Footer = () => {
                   className="footer-social-icon"
                   style={{ background: "none", width: "auto", height: "auto" }}
                 />
-                <span>info@corbettphoenix.com</span>
+            
                 <span>navinpana@gmail.com</span>
               </li>
             </ul>
