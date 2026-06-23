@@ -55,7 +55,7 @@ const WhyChooseUs = () => {
         <div className="wcu-image-wrapper">
           <div className="image-decoration"></div>
           <img
-            src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=1000"
+            src="https://github.com/Aegis76/Corbett-Phoenix/blob/main/public/IMG-20260618-WA0007.jpg?raw=true"
             alt="Resort Experience"
             className="wcu-main-img"
           />
