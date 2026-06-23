@@ -24,16 +24,16 @@ const images = [
   },
   {
     id: 6,
-    url: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&q=80&w=800",
+    url: "",
     large: true,
   },
   {
     id: 7,
-    url: "https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&q=80&w=800",
+    url: "",
   },
   {
     id: 8,
-    url: "https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&q=80&w=800",
+    url: "",
   },
 ];
 
