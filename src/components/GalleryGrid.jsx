@@ -8,7 +8,7 @@ const images = [
   },
   {
     id: 2,
-    url: "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?auto=format&fit=crop&q=80&w=800",
+    url: "https://github.com/Aegis76/Corbett-Phoenix/blob/main/public/IMG_7371.jpg?raw=true",
   },
   {
     id: 3,
