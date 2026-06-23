@@ -22,19 +22,6 @@ const images = [
     id: 5,
     url: "https://images.unsplash.com/photo-1638260245218-2adb54cb41a5?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
-  {
-    id: 6,
-    url: "",
-    large: true,
-  },
-  {
-    id: 7,
-    url: "",
-  },
-  {
-    id: 8,
-    url: "",
-  },
 ];
 
 const GalleryGrid = ({ limit }) => {
