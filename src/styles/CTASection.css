@@ -1,0 +1,148 @@
+.cta-section {
+  position: relative;
+  min-height: 650px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  overflow: hidden;
+}
+
+.cta-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+      rgba(0, 0, 0, 0.45),
+      rgba(0, 0, 0, 0.65)
+    ),
+    linear-gradient(
+      to right,
+      rgba(16, 37, 24, 0.85),
+      rgba(0, 0, 0, 0.25)
+    );
+}
+
+.cta-content {
+  position: relative;
+  z-index: 2;
+  max-width: 720px;
+  padding: 60px;
+  border-radius: 24px;
+
+  backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.08);
+
+  border: 1px solid rgba(255,255,255,0.15);
+
+  box-shadow: 0 30px 80px rgba(0,0,0,.35);
+
+  animation: fadeUp 1s ease;
+}
+
+.cta-tag{
+    display:inline-block;
+    margin-bottom:18px;
+    color:#fff;
+    letter-spacing:2px;
+    font-size:.8rem;
+    text-transform:uppercase;
+    padding:10px 18px;
+    border-radius:50px;
+    background:rgba(255,255,255,.12);
+    border:1px solid rgba(255,255,255,.15);
+}
+
+.cta-title{
+    font-size:3.7rem;
+    color:#fff;
+    line-height:1.1;
+    font-weight:700;
+    margin-bottom:20px;
+}
+
+.cta-subtitle{
+    color:rgba(255,255,255,.92);
+    font-size:1.1rem;
+    line-height:1.9;
+    margin-bottom:40px;
+}
+
+.hero-btns{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.cta-btn{
+    text-decoration:none;
+    padding:18px 40px;
+    border-radius:60px;
+    font-weight:600;
+    transition:.4s;
+}
+
+.cta-btn.primary{
+    background:#fff;
+    color:#1d4d2e;
+}
+
+.cta-btn.primary:hover{
+    transform:translateY(-5px);
+    background:#d8b36a;
+    color:#fff;
+}
+
+.cta-btn.secondary{
+    color:#fff;
+    border:2px solid rgba(255,255,255,.8);
+}
+
+.cta-btn.secondary:hover{
+    background:#fff;
+    color:#1d4d2e;
+    transform:translateY(-5px);
+}
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(60px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@media(max-width:992px){
+
+    .cta-section{
+        min-height:550px;
+        background-attachment:scroll;
+    }
+
+    .cta-content{
+        padding:40px 30px;
+        margin:20px;
+    }
+
+    .cta-title{
+        font-size:2.5rem;
+    }
+
+    .cta-subtitle{
+        font-size:1rem;
+    }
+
+    .hero-btns{
+        flex-direction:column;
+    }
+
+    .cta-btn{
+        width:100%;
+        text-align:center;
+    }
+
+}
