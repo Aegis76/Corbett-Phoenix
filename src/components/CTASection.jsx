@@ -6,45 +6,39 @@ import "./CTASection.css";
 
 const CTASection = () => {
   return (
-    <section
-      className="cta-section"
-      style={{
-        backgroundImage:
-          "url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1800&q=80')",
-      }}
-    >
-      <div className="cta-overlay"></div>
+    <section className="cta-section">
+  <div className="cta-overlay"></div>
 
-      <div className="container">
-        <div className="cta-content">
-          <span className="cta-tag">
-            🌿 Luxury Stay • Jim Corbett National Park
-          </span>
+  <div className="container">
+    <div className="cta-content">
 
-          <h2 className="cta-title">
-            Escape Into The Wild.
-            <br />
-            Stay In Luxury.
-          </h2>
+      <span className="cta-tag">
+        ★ Luxury Hotel in Jim Corbett
+      </span>
 
-          <p className="cta-subtitle">
-            Wake up to birdsong, unwind amidst lush forests, and experience
-            unforgettable hospitality at Corbett Phoenix Resort in the heart of
-            Ramnagar.
-          </p>
+      <h2 className="cta-title">
+        Stay in Comfort.
+        <br />
+        Wake Up to Nature.
+      </h2>
 
-          <div className="hero-btns">
-            <Link to="/rooms" className="cta-btn primary">
-              Book Your Stay
-            </Link>
+      <p className="cta-subtitle">
+        Experience elegant rooms, warm hospitality, delicious dining, and peaceful surroundings at Corbett Phoenix Hotel—your perfect getaway near Jim Corbett National Park.
+      </p>
 
-            <Link to="/contact" className="cta-btn secondary">
-              Contact Us
-            </Link>
-          </div>
-        </div>
+      <div className="hero-btns">
+        <Link to="/rooms" className="cta-btn primary">
+          Reserve Your Room
+        </Link>
+
+        <Link to="/contact" className="cta-btn secondary">
+          Contact Us
+        </Link>
       </div>
-    </section>
+
+    </div>
+  </div>
+</section>
   );
 };
 
