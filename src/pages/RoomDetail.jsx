@@ -10,8 +10,8 @@ import CTASection from "../components/CTASection";
 /* ---------------- HOTEL CONFIG — EDIT THESE ---------------- */
 const HOTEL_WHATSAPP = "919411197491"; // country code + number, no "+"
 const HOTEL_NAME = "Corbett Phoenix";
-const HOTEL_PHONE = "+91 92118 02202";
-const HOTEL_EMAIL = "corbettphoenix@mmthotels.com";
+const HOTEL_PHONE = "+91 9411197491";
+const HOTEL_EMAIL = "navinpana@gmail.com";
 const HOTEL_HOURS = "10 AM – 7 PM";
 const HOTEL_LOCATION = "Awala Khot, Kotabagh · near Jim Corbett National Park, Uttarakhand";
 const CHECK_IN_TIME = "12:00 PM";
@@ -36,7 +36,7 @@ const fmtShort = (str) => { if (!str) return "—"; const d = parseDate(str); re
 const allRooms = [
   {
     id: 1, name: "Standard Room", eyebrow: "Cosy Retreat",
-    description: "AC single bedrooms — private, comfortable, and cool, with all the essentials for a restful stay near the forest.",
+    description: "AC single bedrooms — private, comfortable, and cool, with all the essentials.",
     image: "https://github.com/Aegis76/Corbett-Phoenix/blob/main/public/IMG-20260618-WA0015.jpg?raw=true",
     guests: 2, bed: "1 Queen Bed", size: "150 sq ft",
     plans: [
@@ -46,14 +46,14 @@ const allRooms = [
     ],
   },
   {
-    id: 2, name: "Deluxe Room", eyebrow: "Forest View",
-    description: "Spacious comfort with a private balcony overlooking the forest — elegant interiors, serene views, and modern amenities.",
+    id: 2, name: "Deluxe Room", eyebrow: "",
+    description: "Spacious comfort with  elegant interiors and modern amenities.",
     image: "https://github.com/Aegis76/Corbett-Phoenix/blob/main/public/IMG-20260618-WA0017.jpg?raw=true",
     guests: 2, bed: "1 King Bed", size: "220 sq ft",
     plans: [
-      { id: "p1", type: "CP", name: "CP Plan", inclusions: ["Forest View", "Free WiFi", "AC", "TV"], cancellation: "Non-Refundable", prices: { peak: 2500, off: 1500 } },
-      { id: "p2", type: "MAP", name: "MAP Plan", inclusions: ["Breakfast & Dinner", "Forest View", "Free WiFi"], cancellation: "Free cancellation before 48 hours", prices: { peak: 3000, off: 2000 } },
-      { id: "p3", type: "AP", name: "AP Plan", inclusions: ["All Meals", "Forest View", "Free WiFi"], cancellation: "Free cancellation before 48 hours", prices: { peak: 3500, off: 2500 } },
+      { id: "p1", type: "CP", name: "CP Plan", inclusions: ["Free WiFi", "AC", "TV"], cancellation: "Non-Refundable", prices: { peak: 2500, off: 1500 } },
+      { id: "p2", type: "MAP", name: "MAP Plan", inclusions: ["Breakfast & Dinner", "Free WiFi"], cancellation: "Free cancellation before 48 hours", prices: { peak: 3000, off: 2000 } },
+      { id: "p3", type: "AP", name: "AP Plan", inclusions: ["All Meals", "Free WiFi"], cancellation: "Free cancellation before 48 hours", prices: { peak: 3500, off: 2500 } },
     ],
   },
   {
