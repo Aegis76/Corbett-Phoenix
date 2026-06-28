@@ -70,36 +70,7 @@ const allRooms = [
   },
 ];
 
-/* ---------- TABLE DERIVED FROM allRooms ---------- */
-const SEASON_META = [
-  { key: "peak", label: "Peak Season", period: "16 Jun – 14 Oct" },
-  { key: "off", label: "Off Season", period: "15 Oct – 15 Jun" },
-];
-const priceOf = (room, type, key) => room.plans.find((p) => p.type === type).prices[key];
-const seasonalTariffs = SEASON_META.map((s) => ({
-  key: s.key,
-  label: s.label,
-  period: s.period,
-  rows: allRooms.map((r) => ({
-    category: r.name,
-    cp: priceOf(r, "CP", s.key),
-    map: priceOf(r, "MAP", s.key),
-    ap: priceOf(r, "AP", s.key),
-  })),
-}));
 
-/* ---------- STYLES ---------- */
-const tariffTitleStyle = { textAlign: "center", marginBottom: "8px", fontSize: "2.5rem", color: "#0f3d2e", fontWeight: 700 };
-const tariffSubtitleStyle = { textAlign: "center", marginBottom: "44px", color: "#5a6b62", fontSize: "1rem" };
-const seasonHeadingStyle = { display: "flex", alignItems: "center", justifyContent: "center", flexWrap: "wrap", gap: "12px", marginBottom: "18px", color: "#0f3d2e", fontSize: "1.4rem", fontWeight: 700 };
-const tariffTableWrap = { backgroundColor: "#fff", borderRadius: "18px", overflow: "hidden", border: "1px solid rgba(15,61,46,0.08)", marginBottom: "44px", transition: "box-shadow 0.3s ease" };
-const thStyle = { padding: "18px", background: "linear-gradient(135deg, #0f3d2e, #2d4632)", color: "#fff", fontWeight: 600, fontSize: "0.95rem", letterSpacing: "0.4px" };
-const tdStyle = { padding: "16px" };
-const datesBadgeStyle = { fontSize: "0.72rem", fontWeight: 700, background: "#0f3d2e", color: "#fff", padding: "4px 12px", borderRadius: "999px", letterSpacing: "0.4px" };
-const dateBarStyle = { display: "flex", flexWrap: "wrap", gap: "20px", justifyContent: "center", alignItems: "flex-end", maxWidth: "720px", margin: "0 auto 50px", background: "#fff", padding: "24px", borderRadius: "16px", boxShadow: "0 4px 20px rgba(0,0,0,0.08)" };
-const dateFieldStyle = { display: "flex", flexDirection: "column", gap: "6px" };
-const dateLabelStyle = { fontSize: "0.85rem", fontWeight: 600, color: "#0f3d2e" };
-const dateInputStyle = { padding: "10px 14px", border: "1px solid #ccc", borderRadius: "8px", fontSize: "1rem" };
 
 /* ---------- BOOKING MODAL STYLES ---------- */
 const overlayStyle = { position: "fixed", inset: 0, background: "rgba(10,25,18,0.55)", backdropFilter: "blur(3px)", display: "flex", alignItems: "flex-start", justifyContent: "center", padding: "40px 16px", zIndex: 1000, overflowY: "auto" };
