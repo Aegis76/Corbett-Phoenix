@@ -6,7 +6,7 @@ import CTASection from "../components/CTASection";
 const HOTEL_WHATSAPP = "919411197491"; // country code + number, no "+"
 const HOTEL_NAME = "Corbett Phoenix";
 const HOTEL_PHONE = "+91 9411197491";
-const HOTEL_EMAIL = "stay@corbettphoenix.com";
+const HOTEL_EMAIL = "navinpana@gmail.com";
 const HOTEL_LOCATION = "Awala Khot, Kotabagh · near Corbett National Park, Uttarakhand";
 const CHECK_IN_TIME = "12:00 PM";
 const CHECK_OUT_TIME = "11:00 AM";
