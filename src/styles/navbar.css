@@ -70,13 +70,10 @@
 .logo {
   font-family: "Poppins", sans-serif;
   font-size: 1.8rem;
-  /* font-weight: 00; */
   letter-spacing: 0.1rem;
   color: var(--primary);
   transition: var(--transition);
 }
-
-/* Logo Animation */
 
 /* ================================
    NAV LINKS
@@ -135,6 +132,12 @@
 /* Mobile Menu Button */
 .mobile-menu-btn {
   display: none;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
   color: var(--primary);
   transition: var(--transition);
 }
@@ -192,6 +195,7 @@
   left: 0;
   width: 100%;
   height: 100vh;
+  height: 100dvh; /* respects mobile browser chrome */
 
   display: flex;
   justify-content: center;
@@ -222,8 +226,8 @@
 }
 
 .mobile-nav-link {
-  font-size: 16px;
-  font-weight: 400;
+  font-size: 1.25rem;
+  font-weight: 500;
   color: var(--primary);
   transition: var(--transition);
 }
@@ -235,27 +239,88 @@
 /* ================================
    RESPONSIVE
 ================================ */
+
+/* --- Tablet / mobile: collapse to hamburger + tighten the bar --- */
 @media (max-width: 992px) {
   .nav-links {
     display: none;
   }
 
   .mobile-menu-btn {
-    display: block;
+    display: inline-flex;
   }
 
   .top-bar-info {
     display: none;
   }
-}
 
-@media (max-width: 768px) {
+  /* shrink the bar so it isn't desktop-tall on a phone */
+  .navbar {
+    padding: 12px 0;
+  }
+
+  .logo {
+    font-size: 1.4rem;
+    letter-spacing: 0.06rem;
+  }
+
   .main-header.transparent .navbar {
-    padding: 20px 0;
+    padding: 16px 0;
+  }
+
+  .main-header.scrolled .navbar {
+    padding: 10px 0;
+  }
+
+  /* keep the hamburger icon a sensible touch size */
+  .mobile-menu-btn svg {
+    width: 28px;
+    height: 28px;
   }
 }
-@media (max-width: 480px) {
-  .top-bar-info {
-    display: none; /* Mobile par lambi emails hide kar do, space bachega */
+
+/* --- Small phones --- */
+@media (max-width: 600px) {
+  .top-bar {
+    font-size: 0.75rem;
+    padding: 6px 0;
+  }
+
+  .top-bar-social {
+    gap: 12px;
+  }
+
+  .navbar {
+    padding: 10px 0;
+  }
+
+  .main-header.transparent .navbar {
+    padding: 12px 0;
+  }
+
+  .main-header.scrolled .navbar {
+    padding: 8px 0;
+  }
+
+  .logo {
+    font-size: 1.25rem;
+    letter-spacing: 0.04rem;
+  }
+}
+
+/* --- Very small phones --- */
+@media (max-width: 400px) {
+  /* hide the top bar entirely to reclaim height */
+  .top-bar {
+    display: none;
+  }
+
+  .logo {
+    font-size: 1.15rem;
+  }
+
+  .mobile-menu-btn svg {
+    width: 26px;
+    height: 26px;
   }
 }
