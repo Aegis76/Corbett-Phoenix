@@ -68,7 +68,7 @@ const Home = () => {
           <div className="about-section">
             <div className="about-content">
               <h2 className="section-title" style={{ textAlign: "left" }}>
-                Welcome to Corbett Phoenix Resort
+                Welcome to Corbett Phoenix
               </h2>
               <p style={{ marginBottom: "20px", fontSize: "1.1rem" }}>
                 Your gateway to peace in the heart of nature. Nestled in the lush greens of Awala Khot, Kotabagh, just a short drive from the enchanting Corbett National Park, Phoenix Corbett is a tranquil escape for nature lovers, adventure seekers, and anyone looking to disconnect from city life.
