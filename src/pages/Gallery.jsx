@@ -5,7 +5,7 @@ import CTASection from '../components/CTASection';
 const Gallery = () => {
   const [filter, setFilter] = useState('All');
 
-  const categories = ['All', 'Rooms', 'Safari', 'Resort', 'Nature'];
+  const categories = ['All'];
 
   return (
     <main>
